@@ -23,6 +23,18 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   only a count.
 - While donations are open, `raised.goal_purifiers` shows as "Goal · 2 air purifiers".
 
+## Open questions — confirm before filling these in
+
+- **The purifiers are Midea**, the model the shelter already uses, bought from an
+  Indonesian Shopee listing that includes a filter. No price has been given yet, so
+  `purifiers.planned` and `.spent` stay `null`.
+- **Currency is unsettled.** `budget.currency` is TWD and the page prints `NT$`, but an
+  Indonesian listing prices in IDR. Don't mix the two in one receipt — ask Michelle for
+  the TWD figure, or for permission to show that line in IDR, before writing a number.
+- **Who buys is unsettled.** If the shelter buys locally rather than Michelle shipping
+  from Taipei, the step notes and the "Taipei → Palangka Raya" route line need rewording:
+  the money and the banner travel that distance, the purifiers don't.
+
 ## Money: the "Where it goes" receipt
 
 `budget.items` is the public account of what the donations paid for. Donors read this,
@@ -54,7 +66,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | --- | --- |
 | `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
 | `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
-| `order placed` (+ what was ordered) | step `ordered`: `done = true`, `date = today`, note listing the items and quantities — **no prices** — e.g. "Two Xiaomi Smart Air Purifier 4 Lite, shipping straight to the shelter." Include masks and filters in the same sentence if they were in the order. |
+| `order placed` (+ what was ordered) | step `ordered`: `done = true`, `date = today`, note listing the items and quantities — **no prices** — in the shape "Two \<model\>, \<where it's going\>." Include masks and filters in the same sentence if they were in the order. Never guess a model: use the one Michelle actually names. |
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
