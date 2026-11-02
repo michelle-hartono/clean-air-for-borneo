@@ -5,7 +5,8 @@
     "twd": null,
     "purifiers": null,
     "date": null,
-    "note": "Donations close on 14 November. Then the purifiers get ordered."
+    "note": "Donations close on 14 November. Then the purifiers get ordered.",
+    "goal_purifiers": 2
   },
   "shelters": [
     {
@@ -14,12 +15,82 @@
       "place": "A kindergarten turned haze shelter in Palangka Raya, Central Kalimantan",
       "link": "https://www.instagram.com/p/DezK-eDj94u/",
       "steps": [
-        { "id": "ordered", "label": "Order placed", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
-        { "id": "shipped", "label": "On the way", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
-        { "id": "received", "label": "Received at the shelter", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
-        { "id": "installed", "label": "Switched on", "done": false, "date": null, "note": "", "photo": null, "alt": "" }
+        {
+          "id": "ordered",
+          "label": "Order placed",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "shipped",
+          "label": "On the way",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "received",
+          "label": "Received at the shelter",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "installed",
+          "label": "Switched on",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        }
       ]
     }
   ],
-  "moments": []
+  "moments": [],
+  "budget": {
+    "currency": "TWD",
+    "note": "Nothing's bought yet. These are the plans — real prices land here as I order each thing.",
+    "items": [
+      {
+        "id": "purifiers",
+        "label": "Air purifiers",
+        "qty": 2,
+        "planned": null,
+        "spent": null,
+        "note": "The goal: two units, so a second shelter room gets one too."
+      },
+      {
+        "id": "filters",
+        "label": "Replacement filters",
+        "qty": null,
+        "planned": null,
+        "spent": null,
+        "note": "A spare set each, so they still work after this haze season."
+      },
+      {
+        "id": "masks",
+        "label": "N95 masks",
+        "qty": null,
+        "planned": null,
+        "spent": null,
+        "note": "For the days the kids have to be outside anyway."
+      },
+      {
+        "id": "shipping",
+        "label": "Shipping to Palangka Raya",
+        "qty": null,
+        "planned": null,
+        "spent": null,
+        "note": "Taipei to Central Kalimantan."
+      }
+    ]
+  }
 }

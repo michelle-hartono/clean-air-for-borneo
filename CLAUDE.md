@@ -21,6 +21,24 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - Optional: `raised.donors` (a number) makes the tally read "Raised from 23 of you"
   instead of just "Raised". Leave it out and the page simply omits it. Never a name,
   only a count.
+- While donations are open, `raised.goal_purifiers` shows as "Goal · 2 air purifiers".
+
+## Money: the "Where it goes" receipt
+
+`budget.items` is the public account of what the donations paid for. Donors read this,
+so it has to be true before it is tidy.
+
+- Each item has `planned` (an estimate) and `spent` (what actually left the bank).
+  The page shows `spent` when it exists, otherwise `planned` tagged **est**, otherwise
+  "to be costed". Both null is fine and renders honestly — don't fill a number in to
+  make the row look finished.
+- **Never invent or round a price.** If Michelle hasn't said what something cost, it
+  stays null. A wrong number here is worse than a blank one.
+- The stacked bar, the totals and the "still to allocate" line are all computed from
+  these values and `raised.twd`. Don't hand-write a total.
+- If spending goes over what was raised, the page says "Over, covered by me" — that's
+  intended, not a bug. Don't pad `raised.twd` to hide it.
+- Amounts are plain integers in TWD, no separators: `5400`, not `"NT$5,400"`.
 
 ## Commands
 
@@ -36,6 +54,11 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
 | `add shelter: NAME, PLACE` | append a new shelter with the same four steps, all `done: false` |
 | `add moment: TEXT` (+ optional photo) | append to `moments` with today's date |
+| `goal: N purifiers` | `raised.goal_purifiers = N` |
+| `cost: ITEM = NT$X` | that `budget.items` entry: `planned = X` (an estimate) |
+| `spent: ITEM = NT$X` | that entry: `spent = X` (actually bought) |
+| `add cost: LABEL` (+ optional NT$X) | append a `budget.items` entry, amounts null unless given |
+| `drop cost: ITEM` | remove that `budget.items` entry |
 | `undo last` | `git revert` the most recent tracker commit and push |
 
 If a command doesn't say which shelter, use the first one (`ra-annisa`). If there are two shelters and it's ambiguous, ask.
@@ -55,5 +78,6 @@ Write notes in plain, warm, lowercase-friendly English, one or two sentences, fo
 
 - `python3 -m json.tool status.json > /dev/null` must pass.
 - Every `photo` path in `status.json` must exist in `photos/`.
+- Every `budget` amount is either `null` or a number Michelle actually gave you.
 - Commit message: `tracker: <what changed>`, e.g. `tracker: order placed for RA Annisa`.
 - Push to `main`. GitHub Pages redeploys in about a minute. Reply to Michelle with the live URL and a one-line summary of what changed.
