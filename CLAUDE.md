@@ -28,10 +28,11 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 `budget.items` is the public account of what the donations paid for. Donors read this,
 so it has to be true before it is tidy.
 
-- **Air purifiers are the only line until the money is counted.** Masks and spare filters
-  get added *only* out of surplus — once the total is in and the purifiers are paid for,
-  whatever is left decides whether they go on the list at all. Don't list a thing she
-  hasn't decided to buy.
+- Two lines are committed from the start: **air purifiers** and **sending the banner**
+  (the one drawn at the birthday picnic, posted Taipei → Palangka Raya for the kids).
+- Masks and spare filters get added *only* out of surplus — once the total is in and the
+  purifiers and banner are paid for, whatever is left decides whether they go on the list
+  at all. Don't list a thing she hasn't decided to buy.
 - Each item has `planned` (an estimate) and `spent` (what actually left the bank).
   The page shows `spent` when it exists, otherwise `planned` tagged **est**, otherwise
   "to be costed". Both null is fine and renders honestly — don't fill a number in to
@@ -53,7 +54,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | --- | --- |
 | `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
 | `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
-| `order placed` (+ model and price) | step `ordered`: `done = true`, `date = today`, note naming the model and unit price, e.g. "Two Xiaomi Smart Air Purifier 4 Lite, NT$2,700 each on Shopee, shipping straight to the shelter." |
+| `order placed` (+ what was ordered) | step `ordered`: `done = true`, `date = today`, note listing the items and quantities — **no prices** — e.g. "Two Xiaomi Smart Air Purifier 4 Lite, shipping straight to the shelter." Include masks and filters in the same sentence if they were in the order. |
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
@@ -69,6 +70,10 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 If a command doesn't say which shelter, use the first one (`ra-annisa`). If there are two shelters and it's ambiguous, ask.
 
 Write notes in plain, warm, lowercase-friendly English, one or two sentences, for example: "Ordered on Shopee and shipping straight to the shelter." Every photo needs a short `alt` describing what's in it.
+
+**Money stays in the receipt, goods stay in the step notes.** A step note says *what* was
+ordered and how many — never a price, never a total. The "Where it goes" section is the
+only place amounts appear, so the two never disagree and nobody has to read a number twice.
 
 ## Photos: privacy rules (always)
 

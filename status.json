@@ -57,7 +57,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Purifiers first. If there's more than enough, spare filters and masks get added to this list.",
+    "note": "Purifiers first, plus getting the banner there. If there's more than enough, spare filters and masks get added to this list.",
     "items": [
       {
         "id": "purifiers",
@@ -66,6 +66,14 @@
         "planned": null,
         "spent": null,
         "note": "Two units — what the donations were set against."
+      },
+      {
+        "id": "banner",
+        "label": "Sending the banner",
+        "qty": null,
+        "planned": null,
+        "spent": null,
+        "note": "The one we all drew at the picnic, posted from Taipei to the kids in Palangka Raya."
       }
     ]
   }
