@@ -1,0 +1,25 @@
+{
+  "updated": "2026-10-28",
+  "raised": {
+    "closed": false,
+    "twd": null,
+    "purifiers": null,
+    "date": null,
+    "note": "Donations close on 14 November. Then the purifiers get ordered."
+  },
+  "shelters": [
+    {
+      "id": "ra-annisa",
+      "name": "Rumah Aman Asap RA Annisa",
+      "place": "A kindergarten turned haze shelter in Palangka Raya, Central Kalimantan",
+      "link": "https://www.instagram.com/p/DezK-eDj94u/",
+      "steps": [
+        { "id": "ordered", "label": "Order placed", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
+        { "id": "shipped", "label": "On the way", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
+        { "id": "received", "label": "Received at the shelter", "done": false, "date": null, "note": "", "photo": null, "alt": "" },
+        { "id": "installed", "label": "Switched on", "done": false, "date": null, "note": "", "photo": null, "alt": "" }
+      ]
+    }
+  ],
+  "moments": []
+}
