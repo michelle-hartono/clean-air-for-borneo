@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-28",
+  "updated": "2026-11-02",
   "raised": {
     "closed": false,
     "twd": null,
     "purifiers": null,
     "date": null,
-    "note": "Donations close on 14 November. Then the purifiers get ordered.",
+    "note": "Donations close on 16 November. Then the purifiers get ordered.",
     "goal_purifiers": 2
   },
   "shelters": [
@@ -57,7 +57,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Nothing's bought yet. These are the plans — real prices land here as I order each thing.",
+    "note": "Purifiers first. If there's more than enough, spare filters and masks get added to this list.",
     "items": [
       {
         "id": "purifiers",
@@ -65,31 +65,7 @@
         "qty": 2,
         "planned": null,
         "spent": null,
-        "note": "The goal: two units, so a second shelter room gets one too."
-      },
-      {
-        "id": "filters",
-        "label": "Replacement filters",
-        "qty": null,
-        "planned": null,
-        "spent": null,
-        "note": "A spare set each, so they still work after this haze season."
-      },
-      {
-        "id": "masks",
-        "label": "N95 masks",
-        "qty": null,
-        "planned": null,
-        "spent": null,
-        "note": "For the days the kids have to be outside anyway."
-      },
-      {
-        "id": "shipping",
-        "label": "Shipping to Palangka Raya",
-        "qty": null,
-        "planned": null,
-        "spent": null,
-        "note": "Taipei to Central Kalimantan."
+        "note": "Two units — what the donations were set against."
       }
     ]
   }

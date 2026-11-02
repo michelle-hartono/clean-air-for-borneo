@@ -28,6 +28,10 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 `budget.items` is the public account of what the donations paid for. Donors read this,
 so it has to be true before it is tidy.
 
+- **Air purifiers are the only line until the money is counted.** Masks and spare filters
+  get added *only* out of surplus — once the total is in and the purifiers are paid for,
+  whatever is left decides whether they go on the list at all. Don't list a thing she
+  hasn't decided to buy.
 - Each item has `planned` (an estimate) and `spent` (what actually left the bank).
   The page shows `spent` when it exists, otherwise `planned` tagged **est**, otherwise
   "to be costed". Both null is fine and renders honestly — don't fill a number in to
@@ -36,8 +40,9 @@ so it has to be true before it is tidy.
   stays null. A wrong number here is worse than a blank one.
 - The stacked bar, the totals and the "still to allocate" line are all computed from
   these values and `raised.twd`. Don't hand-write a total.
-- If spending goes over what was raised, the page says "Over, covered by me" — that's
-  intended, not a bug. Don't pad `raised.twd` to hide it.
+- If spending ever goes past what was raised, the page says "Over budget". That branch is
+  a safety net and shouldn't fire — donations came in above target. Don't pad `raised.twd`
+  to hide it if it ever does.
 - Amounts are plain integers in TWD, no separators: `5400`, not `"NT$5,400"`.
 
 ## Commands

@@ -98,9 +98,10 @@
     height: auto;
     transform: scale(1.03);
     filter:
-      blur(calc(var(--haze) * 2.4px))
-      saturate(calc(1 - var(--haze) * 0.5))
-      contrast(calc(1 - var(--haze) * 0.06));
+      blur(calc(var(--haze) * 2.1px))
+      saturate(calc(1 - var(--haze) * 0.86))
+      contrast(calc(1 - var(--haze) * 0.16))
+      brightness(calc(1 + var(--haze) * 0.07));
     transition: filter 2.2s cubic-bezier(.33,.7,.3,1);
   }
   .hero::after {
@@ -110,10 +111,10 @@
     pointer-events: none;
     background:
       linear-gradient(180deg,
-        rgba(169,156,136,0.88) 0%,
-        rgba(180,168,150,0.62) 48%,
-        rgba(192,182,166,0.30) 100%);
-    opacity: calc(var(--haze) * 0.9);
+        rgba(158,144,124,0.96) 0%,
+        rgba(172,159,140,0.80) 42%,
+        rgba(188,177,160,0.52) 100%);
+    opacity: calc(var(--haze) * 0.98);
     transition: opacity 2.2s cubic-bezier(.33,.7,.3,1);
   }
   /* the drawing dissolves into the page rather than sitting on a plate */
@@ -554,7 +555,7 @@
       el.innerHTML =
         '<p class="eyebrow">Right now</p>' +
         '<p class="big">Still collecting</p>' +
-        '<p class="small">' + esc((r && r.note) || 'Donations close on 14 November.') + '</p>' +
+        '<p class="small">' + esc((r && r.note) || 'Donations close on 16 November.') + '</p>' +
         goal;
     }
   }
@@ -621,9 +622,9 @@
       if (pot !== null) {
         var left2 = pot - allocated;
         rows += left2 >= 0
-          ? '<div class="line total"><span class="what">Still to allocate</span><span class="leader"></span>' +
+          ? '<div class="line total"><span class="what">Left over</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(left2)) + '</span></div>'
-          : '<div class="line total over"><span class="what">Over, covered by me</span><span class="leader"></span>' +
+          : '<div class="line total over"><span class="what">Over budget</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(Math.abs(left2))) + '</span></div>';
       }
       sums = '<div class="sums">' + rows + '</div>';
@@ -688,9 +689,9 @@
       done += s.steps.filter(function (st) { return st.done; }).length;
     });
     var el = document.getElementById('weather');
-    if (!total) { el.textContent = ''; document.documentElement.style.setProperty('--haze', '0.82'); return; }
+    if (!total) { el.textContent = ''; document.documentElement.style.setProperty('--haze', '0.85'); return; }
     var frac = done / total;
-    document.documentElement.style.setProperty('--haze', (0.82 * (1 - frac)).toFixed(3));
+    document.documentElement.style.setProperty('--haze', (0.85 * (1 - frac)).toFixed(3));
     el.innerHTML = frac >= 1
       ? '<b>Clear</b> &middot; every purifier is running'
       : '<b>' + done + ' of ' + total + '</b> &middot; the haze above lifts with each step';
