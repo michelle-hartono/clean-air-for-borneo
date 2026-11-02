@@ -2,9 +2,25 @@
 
 A static page on GitHub Pages that follows the air purifiers bought with Michelle's 25th-birthday donations, from Taipei to haze shelters in Central Kalimantan. Friends reach it through a QR code printed on thank-you cards, so the URL must never change and the page must always load.
 
+**Live URL (pinned — this is what the QR code points at):**
+<https://michelle-hartono.github.io/clean-air-for-borneo/>
+
 - `index.html` renders everything from `status.json`. Don't edit `index.html` for routine updates.
 - `status.json` is the only file that changes for a status update.
 - Photos live in `photos/` and are always added through `scripts/add_photo.py`.
+
+## How the page reacts to the data
+
+The design is driven by `status.json`, so getting the data right is the whole job:
+
+- The drawing at the top sits under a layer of haze that thins as steps are completed,
+  and is fully clear once every step of every shelter is done. The caption under it
+  ("2 of 4") and the blue thread down the step rail come from the same count.
+- The step a shelter is up to next is whichever one is first with `done: false` — it
+  gets the pulsing ring and the line "Happening next."
+- Optional: `raised.donors` (a number) makes the tally read "Raised from 23 of you"
+  instead of just "Raised". Leave it out and the page simply omits it. Never a name,
+  only a count.
 
 ## Commands
 
@@ -13,6 +29,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | Michelle says | What to change |
 | --- | --- |
 | `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
+| `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
 | `order placed` (+ optional screenshot) | step `ordered`: `done = true`, `date = today`, short note, photo if given |
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
