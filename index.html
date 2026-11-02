@@ -287,7 +287,14 @@
     white-space: nowrap;
   }
   .amt.todo { color: var(--ink-mute); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .amt .plan { color: var(--ink-mute); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; margin-left: 6px; }
+  .plan {
+    font-family: var(--mono);
+    color: var(--ink-mute);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .amt .plan { margin-left: 6px; }
   .ledger .why { margin: 3px 0 0 18px; font-size: 0.93rem; color: var(--ink-mute); line-height: 1.5; }
 
   .sums { margin: 26px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); }
@@ -324,29 +331,23 @@
     padding: 0;
     position: relative;
   }
-  ol.steps::before {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 10px;
-    bottom: 14px;
-    width: 2px;
-    background: var(--rule);
-  }
-  /* the blue thread is how far the purifiers have actually got */
-  ol.steps::after {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 10px;
-    width: 2px;
-    height: var(--reached, 0%);
-    background: var(--marker);
-    transition: height 1.4s cubic-bezier(.33,.7,.3,1);
-  }
-
   .step { position: relative; padding: 0 0 26px 42px; }
   .step:last-child { padding-bottom: 0; }
+
+  /* one connector per step, marker-centre to marker-centre, so it lands right
+     no matter how tall a step grows with notes and photos */
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 14px;
+    bottom: -14px;
+    width: 2px;
+    background: var(--rule);
+    transition: background-color 0.9s ease;
+  }
+  /* blue as far as the purifiers have actually got */
+  .step.threaded::after { background: var(--marker); }
 
   .marker {
     position: absolute;
@@ -536,7 +537,7 @@
 
   function renderTally(r) {
     var el = document.getElementById('tally');
-    if (r && r.closed) {
+    if (r && r.closed && r.twd !== null && r.twd !== undefined) {
       var count = r.purifiers === 1 ? '1 air purifier' : r.purifiers + ' air purifiers';
       var who = r.donors ? ' from ' + esc(r.donors) + ' of you' : '';
       el.className = 'tally';
@@ -631,19 +632,19 @@
     var foot = b.note ? '<p class="footnote">' + esc(b.note) + '</p>' : '';
     el.innerHTML =
       '<h2>Where it goes</h2>' +
-      '<p class="intro">Every line here is paid for out of what you gave. Estimates are marked <span class="plan" style="margin:0">est</span> until the thing is actually bought.</p>' +
+      '<p class="intro">Line by line, what the donations are paying for. Amounts are marked <span class="plan">est</span> until the thing is actually bought.</p>' +
       bar + '<ul class="ledger">' + lines + '</ul>' + sums + foot;
   }
 
   function renderShelter(s) {
     var firstOpen = -1;
     for (var i = 0; i < s.steps.length; i++) { if (!s.steps[i].done) { firstOpen = i; break; } }
-    var doneCount = s.steps.filter(function (st) { return st.done; }).length;
-    var reached = s.steps.length > 1 ? (Math.max(0, doneCount - 1) / (s.steps.length - 1)) * 100 : 0;
-
     var steps = s.steps.map(function (st, i) {
+      // the connector below this step is blue once the NEXT step is done
+      var next = s.steps[i + 1];
       var cls = 'step' + (st.done ? ' done' : (i === firstOpen ? ' current' : '')) +
-                (i === s.steps.length - 1 ? ' final' : '');
+                (i === s.steps.length - 1 ? ' final' : '') +
+                (next && next.done ? ' threaded' : '');
       var shot = st.photo
         ? '<img class="shot" src="' + esc(st.photo) + '" alt="' + esc(st.alt || st.label) + '" loading="lazy">'
         : '';
@@ -663,7 +664,7 @@
       : '';
     return '<section class="shelter"><h2>' + esc(s.name) + '</h2>' +
       '<p class="place">' + esc(s.place) + '.' + link + '</p>' +
-      '<ol class="steps" data-reached="' + reached.toFixed(1) + '">' + steps + '</ol></section>';
+      '<ol class="steps">' + steps + '</ol></section>';
   }
 
   function renderMoments(list) {
@@ -686,37 +687,39 @@
       total += s.steps.length;
       done += s.steps.filter(function (st) { return st.done; }).length;
     });
-    var frac = total ? done / total : 0;
+    var el = document.getElementById('weather');
+    if (!total) { el.textContent = ''; document.documentElement.style.setProperty('--haze', '0.82'); return; }
+    var frac = done / total;
     document.documentElement.style.setProperty('--haze', (0.82 * (1 - frac)).toFixed(3));
-    document.getElementById('weather').innerHTML = frac >= 1
+    el.innerHTML = frac >= 1
       ? '<b>Clear</b> &middot; every purifier is running'
       : '<b>' + done + ' of ' + total + '</b> &middot; the haze above lifts with each step';
   }
 
+  function showTrouble() {
+    document.documentElement.style.setProperty('--haze', '0.3');
+    document.getElementById('weather').textContent = '';
+    document.getElementById('budget').hidden = true;
+    document.getElementById('shelters').innerHTML = '';
+    document.getElementById('moments').innerHTML = '';
+    document.getElementById('tally').innerHTML =
+      '<div class="trouble">The tracker couldn&rsquo;t load just now &mdash; pull down to refresh and it should come back.</div>';
+  }
+
+  function render(data) {
+    var shelters = data.shelters || [];
+    renderTally(data.raised);
+    renderBudget(data.budget, data.raised);
+    renderWeather(shelters);
+    document.getElementById('shelters').innerHTML = shelters.map(renderShelter).join('');
+    document.getElementById('moments').innerHTML = renderMoments(data.moments);
+    document.getElementById('updated').textContent = data.updated ? 'Last updated ' + fmtDate(data.updated) + '.' : '';
+  }
+
   fetch('status.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
-    .then(function (data) {
-      var shelters = data.shelters || [];
-      renderTally(data.raised);
-      renderBudget(data.budget, data.raised);
-      renderWeather(shelters);
-      document.getElementById('shelters').innerHTML = shelters.map(renderShelter).join('');
-      document.getElementById('moments').innerHTML = renderMoments(data.moments);
-      document.getElementById('updated').textContent = data.updated ? 'Last updated ' + fmtDate(data.updated) + '.' : '';
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          document.querySelectorAll('ol.steps').forEach(function (ol) {
-            ol.style.setProperty('--reached', ol.dataset.reached + '%');
-          });
-        });
-      });
-    })
-    .catch(function () {
-      document.documentElement.style.setProperty('--haze', '0.3');
-      document.getElementById('weather').textContent = '';
-      document.getElementById('tally').innerHTML =
-        '<div class="trouble">The tracker couldn&rsquo;t load just now &mdash; pull down to refresh and it should come back.</div>';
-    });
+    .then(render)
+    .catch(showTrouble);
 </script>
 </body>
 </html>

@@ -48,7 +48,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | --- | --- |
 | `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
 | `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
-| `order placed` (+ optional screenshot) | step `ordered`: `done = true`, `date = today`, short note, photo if given |
+| `order placed` (+ model and price) | step `ordered`: `done = true`, `date = today`, note naming the model and unit price, e.g. "Two Xiaomi Smart Air Purifier 4 Lite, NT$2,700 each on Shopee, shipping straight to the shelter." |
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
@@ -70,9 +70,15 @@ Write notes in plain, warm, lowercase-friendly English, one or two sentences, fo
 1. Run every photo through the script, never copy it in directly:
    `python3 scripts/add_photo.py <source> photos/<yyyy-mm-dd>-<step>.jpg [--blur x1,y1,x2,y2 ...]`
    The script strips EXIF/GPS metadata, resizes, and blurs boxes.
-2. Before saving, look at the image and blur anything that shouldn't be public: street addresses, phone numbers, recipient names, order or tracking numbers, bank details, QR codes or barcodes on parcels. Shopee screenshots always contain the address and phone number, so blur them.
-3. Don't add photos where adults are shown on oxygen or in medical distress. Children's photos only if Michelle confirms Ranu Welum approved them.
-4. Never put donor names, individual amounts, or bank details anywhere on the page.
+2. **Don't publish the Shopee order screenshot.** It carries the shelter's street address
+   — a kindergarten — plus a phone number, recipient name, and order and tracking numbers,
+   and the repo is public, so a committed image stays in git history even after it's
+   removed. Name the model and unit price in the note instead: it's more checkable than a
+   screenshot and costs nothing in privacy. If Michelle explicitly asks for it anyway,
+   blur the address block, phone, name, and order and tracking numbers first.
+3. Before saving, look at the image and blur anything that shouldn't be public: street addresses, phone numbers, recipient names, order or tracking numbers, bank details, QR codes or barcodes on parcels. Shopee screenshots always contain the address and phone number, so blur them.
+4. Don't add photos where adults are shown on oxygen or in medical distress. Children's photos only if Michelle confirms Ranu Welum approved them.
+5. Never put donor names, individual amounts, or bank details anywhere on the page.
 
 ## Before every push
 
