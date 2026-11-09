@@ -214,6 +214,7 @@
   }
   .tally .small { margin: 8px 0 0; color: var(--ink-soft); }
   .tally.is-open .big { color: var(--ink-soft); font-size: clamp(1.35rem, 5vw, 1.7rem); }
+  .tally .aside { margin: 7px 0 0; color: var(--ink-mute); font-size: 0.95rem; line-height: 1.5; }
   .tally .goal {
     margin: 12px 0 0;
     font-family: var(--mono);
@@ -585,26 +586,49 @@
 
   function renderTally(r) {
     var el = document.getElementById('tally');
-    if (r && r.closed && r.twd !== null && r.twd !== undefined) {
-      var count = r.purifiers === 1 ? '1 air purifier' : r.purifiers + ' air purifiers';
-      var who = r.donors ? ' from ' + esc(r.donors) + ' of you' : '';
-      el.className = 'tally';
-      el.innerHTML =
-        '<p class="eyebrow">Raised' + who + '</p>' +
-        '<p class="big">' + esc(fmtTwd(r.twd)) + '</p>' +
-        '<p class="small">Enough for ' + esc(count) + '. Donations closed on ' + esc(fmtDate(r.date)) + '.</p>';
-    } else {
-      var goal = (r && r.goal_purifiers)
-        ? '<p class="goal">Goal &middot; ' + esc(r.goal_purifiers) +
-          (r.goal_purifiers === 1 ? ' air purifier' : ' air purifiers') + '</p>'
-        : '';
+    r = r || {};
+    var ok = function (v) { return v !== null && v !== undefined; };
+    var total = ok(r.twd) ? Number(r.twd) : null;
+    var seed  = ok(r.seed) ? Number(r.seed) : null;
+
+    var goal = r.goal_purifiers
+      ? '<p class="goal">Goal &middot; ' + esc(r.goal_purifiers) +
+        (r.goal_purifiers === 1 ? ' air purifier' : ' air purifiers') + '</p>'
+      : '';
+
+    // nothing counted yet
+    if (total === null) {
       el.className = 'tally is-open';
       el.innerHTML =
         '<p class="eyebrow">Right now</p>' +
         '<p class="big">Still collecting</p>' +
-        '<p class="small">' + esc((r && r.note) || 'Donations close on 16 November.') + '</p>' +
-        goal;
+        '<p class="small">' + esc(r.note || 'Donations close on 16 November.') + '</p>' + goal;
+      return;
     }
+
+    // "i'm starting us off with NT$3,000" — her share is named separately, as the invitation put it
+    var fromFriends = seed !== null ? Math.max(0, total - seed) : null;
+    var breakdown;
+    if (seed !== null && fromFriends !== null) {
+      var who = r.donors
+        ? esc(r.donors) + (Number(r.donors) === 1 ? ' friend has' : ' friends have')
+        : 'friends have';
+      breakdown = 'I started us off with ' + esc(fmtTwd(seed)) + '. ' +
+                  who + ' added ' + esc(fmtTwd(fromFriends)) +
+                  (r.closed ? '.' : ' since.');
+    } else {
+      breakdown = r.donors ? 'From ' + esc(r.donors) + ' of you.' : '';
+    }
+
+    el.className = 'tally';
+    el.innerHTML =
+      '<p class="eyebrow">' + (r.closed ? 'Raised' : 'Raised so far') + '</p>' +
+      '<p class="big">' + esc(fmtTwd(total)) + '</p>' +
+      (breakdown ? '<p class="small">' + breakdown + '</p>' : '') +
+      (r.closed
+        ? '<p class="aside">Donations closed on ' + esc(fmtDate(r.date)) + '.</p>'
+        : (r.note ? '<p class="aside">' + esc(r.note) + '</p>' : '')) +
+      goal;
   }
 
   function renderBudget(b, raised) {
@@ -627,8 +651,9 @@
     };
     var priced = items.filter(function (it) { return valueOf(it) !== null; });
     var allocated = priced.reduce(function (a, it) { return a + Number(valueOf(it)); }, 0);
-    var pot = (raised && raised.closed && raised.twd !== null && raised.twd !== undefined)
-      ? Number(raised.twd) : null;
+    // the running total counts too — the surplus is what decides masks and filters
+    var pot = (raised && has(raised.twd)) ? Number(raised.twd) : null;
+    var potClosed = !!(raised && raised.closed);
     var scale = Math.max(pot !== null ? pot : 0, allocated) || 1;
     var seg = function (i) { return 'var(--seg-' + ((i % 4) + 1) + ')'; };
 
@@ -671,7 +696,8 @@
     if (priced.length || pot !== null) {
       var rows = '';
       if (pot !== null) {
-        rows += '<div class="line"><span class="what">Raised</span><span class="leader"></span>' +
+        rows += '<div class="line"><span class="what">' + (potClosed ? 'Raised' : 'Raised so far') +
+                '</span><span class="leader"></span>' +
                 '<span class="amt">' + esc(fmtTwd(pot)) + '</span></div>';
       }
       rows += '<div class="line' + (pot === null ? ' total' : '') + '"><span class="what">' +

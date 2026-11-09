@@ -2,7 +2,9 @@
   "updated": "2026-11-09",
   "raised": {
     "closed": false,
-    "twd": null,
+    "twd": 10855,
+    "seed": 3000,
+    "donors": 7,
     "purifiers": null,
     "date": null,
     "note": "Donations close on 16 November. Then the purifiers get ordered.",

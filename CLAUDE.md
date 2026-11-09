@@ -20,6 +20,15 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   ("2 of 4") and the blue thread down the step rail come from the same count.
 - The step a shelter is up to next is whichever one is first with `done: false` — it
   gets the pulsing ring and the line "Happening next."
+- `raised.twd` is the **total raised so far**, in both the open and closed states — the
+  tally and the receipt both read it, so there is one number, never two that can disagree.
+- `raised.seed` is Michelle's own starting amount. Her invitation says *"i'm starting us off
+  with NT$3,000"*, so the page names her share separately in that language: "I started us
+  off with NT$3,000. 7 friends have added NT$7,855 since." The friends' figure is
+  **derived** as `twd - seed` — never store it, or the two will drift apart.
+- `raised.donors` counts **friends only**, not Michelle. She is not one of the "you".
+- While donations are open the receipt says "Raised so far" and shows the running surplus,
+  because the leftover is what decides whether masks and filters happen.
 - `credits` is the footer's photo credit, and it is **empty until a photograph actually
   arrives**. Don't credit anyone for a photo they haven't sent — Ranu Welum's pictures are
   expected when the purifiers reach the shelter, so add `"Ranu Welum Foundation"` (and
@@ -82,6 +91,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 
 | Michelle says | What to change |
 | --- | --- |
+| `donations so far: NT$X from N friends` | `raised.twd = X + raised.seed`, `raised.donors = N` (do the addition yourself; X is the friends' part) |
 | `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
 | `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
 | `order placed` (+ what was ordered) | step `ordered`: `done = true`, `date = today`, note listing the items and quantities — **no prices** — in the shape "Two \<model\>, \<where it's going\>." Include masks and filters in the same sentence if they were in the order. Never guess a model: use the one Michelle actually names. |
