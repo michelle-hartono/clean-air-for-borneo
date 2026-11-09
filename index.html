@@ -298,7 +298,7 @@
     border-radius: 2px;
     transform: translateY(-1px);
   }
-  .line .what { flex: none; max-width: 70%; }
+  .line .what { flex: 0 1 auto; max-width: 70%; }
   .line .qty {
     font-family: var(--mono);
     font-style: normal;
@@ -613,10 +613,17 @@
     if (!items.length) { el.hidden = true; return; }
     el.hidden = false;
 
-    // what a line is worth: real spend if there is one, otherwise the estimate
+    var has = function (v) { return v !== null && v !== undefined; };
+    // an estimate can be a range; budget against the TOP of it so "left over" never overpromises
     var valueOf = function (it) {
-      return it.spent !== null && it.spent !== undefined ? it.spent
-           : (it.planned !== null && it.planned !== undefined ? it.planned : null);
+      if (has(it.spent)) { return it.spent; }
+      if (has(it.planned)) { return it.planned; }
+      if (has(it.planned_high)) { return it.planned_high; }
+      return null;
+    };
+    var rangeOf = function (it) {
+      return (!has(it.spent) && has(it.planned_low) && has(it.planned_high))
+        ? [it.planned_low, it.planned_high] : null;
     };
     var priced = items.filter(function (it) { return valueOf(it) !== null; });
     var allocated = priced.reduce(function (a, it) { return a + Number(valueOf(it)); }, 0);
@@ -641,10 +648,14 @@
 
     var lines = items.map(function (it, i) {
       var v = valueOf(it);
-      var isPlan = (it.spent === null || it.spent === undefined) && v !== null;
+      var rng = rangeOf(it);
+      var isPlan = !has(it.spent) && v !== null;
+      var shown = rng
+        ? fmtTwd(rng[0]) + '\u2013' + Number(rng[1]).toLocaleString('en-US')
+        : fmtTwd(v);
       var amount = v === null
         ? '<span class="amt todo">to be costed</span>'
-        : '<span class="amt">' + esc(fmtTwd(v)) + (isPlan ? '<span class="plan">est</span>' : '') + '</span>';
+        : '<span class="amt">' + esc(shown) + (isPlan ? '<span class="plan">est</span>' : '') + '</span>';
       var qty = it.qty ? '<em class="qty">&times;' + esc(it.qty) + '</em>' : '';
       return '<li>' +
         '<div class="line">' +

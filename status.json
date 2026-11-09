@@ -64,8 +64,10 @@
         "label": "Air purifiers",
         "qty": 2,
         "planned": null,
+        "planned_low": 6400,
+        "planned_high": 8300,
         "spent": null,
-        "note": "Two Midea units — the model the shelter already uses."
+        "note": "Two Midea units — the model the shelter already uses. The price moves with Shopee's promotions and the rupiah rate, so this is a range until it's bought."
       },
       {
         "id": "banner",

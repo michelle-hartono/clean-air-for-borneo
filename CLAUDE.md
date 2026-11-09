@@ -59,6 +59,10 @@ so it has to be true before it is tidy.
 - Masks and spare filters get added *only* out of surplus — once the total is in and the
   purifiers and banner are paid for, whatever is left decides whether they go on the list
   at all. Don't list a thing she hasn't decided to buy.
+- An estimate can be a **range**: set `planned_low` and `planned_high` instead of `planned`
+  and the line reads "NT$6,400–8,300 est". The totals and the bar use `planned_high`, the
+  top of the range, so "Left over" is the *minimum* surplus and never overpromises. A real
+  `spent` always wins and the range disappears.
 - Each item has `planned` (an estimate) and `spent` (what actually left the bank).
   The page shows `spent` when it exists, otherwise `planned` tagged **est**, otherwise
   "to be costed". Both null is fine and renders honestly — don't fill a number in to
@@ -89,6 +93,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | any command that adds the **first** photo | also add the photographer to `credits` |
 | `goal: N purifiers` | `raised.goal_purifiers = N` |
 | `cost: ITEM = NT$X` | that `budget.items` entry: `planned = X` (an estimate) |
+| `cost: ITEM = NT$X to NT$Y` | that entry: `planned_low = X`, `planned_high = Y` (a range) |
 | `spent: ITEM = NT$X` | that entry: `spent = X` (actually bought) |
 | `add cost: LABEL` (+ optional NT$X) | append a `budget.items` entry, amounts null unless given |
 | `drop cost: ITEM` | remove that `budget.items` entry |
