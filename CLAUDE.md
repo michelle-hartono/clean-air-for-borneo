@@ -20,6 +20,11 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   ("2 of 4") and the blue thread down the step rail come from the same count.
 - The step a shelter is up to next is whichever one is first with `done: false` — it
   gets the pulsing ring and the line "Happening next."
+- `credits` is the footer's photo credit, and it is **empty until a photograph actually
+  arrives**. Don't credit anyone for a photo they haven't sent — Ranu Welum's pictures are
+  expected when the purifiers reach the shelter, so add `"Ranu Welum Foundation"` (and
+  `"Rumah Aman Asap"` if theirs) to `credits` in the same edit that adds the first photo,
+  not before. The haze photographs carry their own credits in the captions.
 - Optional: `raised.donors` (a number) makes the tally read "Raised from 23 of you"
   instead of just "Raised". Leave it out and the page simply omits it. Never a name,
   only a count.
@@ -75,6 +80,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
 | `add shelter: NAME, PLACE` | append a new shelter with the same four steps, all `done: false` |
 | `add moment: TEXT` (+ optional photo) | append to `moments` with today's date |
+| any command that adds the **first** photo | also add the photographer to `credits` |
 | `goal: N purifiers` | `raised.goal_purifiers = N` |
 | `cost: ITEM = NT$X` | that `budget.items` entry: `planned = X` (an estimate) |
 | `spent: ITEM = NT$X` | that entry: `spent = X` (actually bought) |
@@ -134,5 +140,8 @@ Rules for any future image:
 - `python3 -m json.tool status.json > /dev/null` must pass.
 - Every `photo` path in `status.json` must exist in `photos/`.
 - Every `budget` amount is either `null` or a number Michelle actually gave you.
+- `credits` names only people who have actually sent a photograph.
+- Open the page and confirm it still renders. Every `getElementById` in `index.html` must
+  match an element that exists — a missing one throws and blanks the whole page.
 - Commit message: `tracker: <what changed>`, e.g. `tracker: order placed for RA Annisa`.
 - Push to `main`. GitHub Pages redeploys in about a minute. Reply to Michelle with the live URL and a one-line summary of what changed.

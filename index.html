@@ -568,7 +568,7 @@
 </main>
 
 <footer class="col">
-  <p>Photos: Ranu Welum Foundation and Rumah Aman Asap.</p>
+  <p id="credits" hidden></p>
   <p id="updated"></p>
 </footer>
 
@@ -750,6 +750,7 @@
     document.getElementById('budget').hidden = true;
     document.getElementById('shelters').innerHTML = '';
     document.getElementById('moments').innerHTML = '';
+    document.getElementById('credits').textContent = '';
     document.getElementById('tally').innerHTML =
       '<div class="trouble">The tracker couldn&rsquo;t load just now &mdash; pull down to refresh and it should come back.</div>';
   }
@@ -761,6 +762,11 @@
     renderWeather(shelters);
     document.getElementById('shelters').innerHTML = shelters.map(renderShelter).join('');
     document.getElementById('moments').innerHTML = renderMoments(data.moments);
+    // only credit photographers who have actually given us a photograph
+    var credits = data.credits || [];
+    var cr = document.getElementById('credits');
+    cr.textContent = credits.length ? 'Photos from the shelter: ' + credits.join(', ') + '.' : '';
+    cr.hidden = !credits.length;
     document.getElementById('updated').textContent = data.updated ? 'Last updated ' + fmtDate(data.updated) + '.' : '';
   }
 
