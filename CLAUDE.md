@@ -42,9 +42,12 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
   **write nothing about where the purifiers are bought or shipped from** — the item note is
   deliberately just "Two Midea units — the model the shelter already uses."
-- **Listing price seen 9 Nov 2026:** Rp1,768,000 per unit on a flash sale, down from
-  Rp2,299,000. Recorded only as a sanity check on any future figure — it is *not* the
-  number for the receipt, which is the TWD that actually leaves Michelle's account.
+- **Price benchmark.** On 9 Nov 2026 the listing showed Rp2,299,000 per unit, with a
+  six-hour flash sale at Rp1,768,000. Michelle chose to let the sale go and order after
+  donations close on 16 November, so **expect roughly the Rp2,299,000 list price** (about
+  NT$4,200 per unit at the time, ~NT$8,300 for two). Don't treat a figure near the list
+  price as a mistake. This is a sanity check only — the receipt records the TWD that
+  actually leaves her account, never a listing price.
 
 ## Money: the "Where it goes" receipt
 
