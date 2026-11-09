@@ -223,12 +223,44 @@
     color: var(--marker);
   }
 
-  .budget, .shelter {
+  .air, .budget, .shelter {
     margin-top: 44px;
     padding-top: 36px;
     border-top: 1px solid var(--rule);
   }
   .budget[hidden] { display: none; }
+
+  /* ---------- the real air: documentary, never touched by the haze filter ---------- */
+
+  .air h2 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .air .standfirst { margin: 9px 0 0; color: var(--ink-soft); line-height: 1.55; }
+  .air figure { margin: 24px 0 0; }
+  .air img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    background: var(--rule-soft);
+  }
+  /* the pale sun leads; the lost road is the supporting band under it */
+  .air .lead img    { aspect-ratio: 4 / 3;  object-fit: cover; object-position: 50% 62%; }
+  .air .support img { aspect-ratio: 16 / 7; object-fit: cover; object-position: 50% 48%; }
+  .air figcaption {
+    margin: 8px 0 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    color: var(--ink-mute);
+  }
+  .air figcaption a { color: var(--ink-mute); text-decoration-color: var(--rule); }
+  .air figcaption a:hover { color: var(--marker); }
 
   /* ---------- where the money goes: a receipt, because that's what you'd show someone ---------- */
 
@@ -515,6 +547,21 @@
 </header>
 
 <main class="col">
+  <section class="air">
+    <h2>The air it&rsquo;s going into</h2>
+    <p class="standfirst">This is Palangka Raya this August, in the thick of the burning season. The sun dims to something you can look straight at, and the road out of town simply stops. This is what two purifiers are up against.</p>
+    <figure class="lead">
+      <img src="assets/haze-sun.jpg" loading="lazy" decoding="async"
+           alt="A smoke-dimmed morning in Palangka Raya. The sun hangs as a pale disc you could look straight at, and houses, flags and trees fade into orange haze across a patch of dry grass.">
+      <figcaption>Palangka Raya, 18 August 2026. Photo by <a href="https://commons.wikimedia.org/wiki/File:Kabut_Asap_Palangka_Raya.jpg" target="_blank" rel="noopener">Yumiyumi9</a>, released into the <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">public domain</a>.</figcaption>
+    </figure>
+    <figure class="support">
+      <img src="assets/haze-road.jpg" loading="lazy" decoding="async"
+           alt="Kalimantan's southern national road leaving Palangka Raya, vanishing into flat grey-white smoke a short way ahead, with a lorry emerging from it.">
+      <figcaption>Kalimantan&rsquo;s southern national road at Palangka Raya, 29 August 2026. Photo by <a href="https://commons.wikimedia.org/wiki/File:Thick_smoke_haze_Palangka_Raya.jpg" target="_blank" rel="noopener">ParadoxP&nbsp;P</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.</figcaption>
+    </figure>
+  </section>
+
   <section id="budget" class="budget" hidden></section>
   <div id="shelters"></div>
   <div id="moments" class="moments"></div>
@@ -579,7 +626,7 @@
     var seg = function (i) { return 'var(--seg-' + ((i % 4) + 1) + ')'; };
 
     var bar = '';
-    if (priced.length) {
+    if (priced.length && pot !== null) {
       var parts = items.map(function (it, i) {
         var v = valueOf(it);
         if (v === null) { return ''; }

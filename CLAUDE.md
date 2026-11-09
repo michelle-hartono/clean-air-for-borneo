@@ -6,6 +6,8 @@ A static page on GitHub Pages that follows the air purifiers bought with Michell
 <https://michelle-hartono.github.io/clean-air-for-borneo/>
 
 - `index.html` renders everything from `status.json`. Don't edit `index.html` for routine updates.
+- The haze photographs and their captions live in `index.html`, not `status.json` — they're
+  page furniture, like the drawing and the opening note.
 - `status.json` is the only file that changes for a status update.
 - Photos live in `photos/` and are always added through `scripts/add_photo.py`.
 
@@ -87,6 +89,30 @@ Write notes in plain, warm, lowercase-friendly English, one or two sentences, fo
 **Money stays in the receipt, goods stay in the step notes.** A step note says *what* was
 ordered and how many — never a price, never a total. The "Where it goes" section is the
 only place amounts appear, so the two never disagree and nobody has to read a number twice.
+
+## Images from the internet: licence rules (always)
+
+The page carries two documentary haze photographs in `assets/`, in the "The air it's going
+into" section. Both were chosen because they are **freely licensed**, and that is the only
+reason they are allowed to be there:
+
+- `haze-sun.jpg` — Palangka Raya, 18 Aug 2026, by Yumiyumi9, **CC0 / public domain**.
+- `haze-road.jpg` — southern national road, 29 Aug 2026, by ParadoxP P, **CC BY-SA 4.0**
+  (attribution and a licence link are required, and are in the `<figcaption>` — don't
+  remove them).
+
+Rules for any future image:
+
+1. **Never take an image off Google Images, Instagram, Facebook, or a stock site**
+   (Alamy, iStock, Shutterstock, Getty, Dreamstime). Most results there are somebody's
+   copyrighted work, stock agencies actively enforce, and this repo is public — a committed
+   image stays in git history even after it's deleted.
+2. Only use: Wikimedia Commons (check the licence on the file page), NASA/ESA imagery,
+   Unsplash or Pexels, or something the photographer has given permission for.
+3. Record author, licence and the source URL in the caption, not just the footer.
+4. **Best source of all is Ranu Welum Foundation** — they are the partner, they have real
+   photographs of this haze, and asking them is better than a stranger's picture.
+5. Credit every photographer by the name they publish under, and never crop out a watermark.
 
 ## Photos: privacy rules (always)
 
