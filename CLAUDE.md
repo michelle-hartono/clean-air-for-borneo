@@ -155,6 +155,10 @@ Rules for any future image:
 3. Before saving, look at the image and blur anything that shouldn't be public: street addresses, phone numbers, recipient names, order or tracking numbers, bank details, QR codes or barcodes on parcels. Shopee screenshots always contain the address and phone number, so blur them.
 4. Don't add photos where adults are shown on oxygen or in medical distress. Children's photos only if Michelle confirms Ranu Welum approved them.
 5. Never put donor names, individual amounts, or bank details anywhere on the page.
+6. Michelle will sometimes paste her working list of who has paid and how much. **That list
+   never goes into this repo** — not the page, not a notes file, not a commit message. The
+   repo is public and git history is permanent. Do the arithmetic outside the project and
+   commit only the aggregate: `raised.twd`, `raised.seed`, `raised.donors`.
 
 ## Before every push
 
