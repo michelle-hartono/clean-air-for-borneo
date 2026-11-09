@@ -38,10 +38,13 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Currency is unsettled.** `budget.currency` is TWD and the page prints `NT$`, but an
   Indonesian listing prices in IDR. Don't mix the two in one receipt — ask Michelle for
   the TWD figure, or for permission to show that line in IDR, before writing a number.
-- **Who buys: settled.** People helping in Indonesia buy the purifiers locally from the
-  Indonesian Shopee listing. So the purifiers never ship from Taipei — the money and the
-  banner are what make that trip. Don't write "shipping from Taipei" into a purifier step
-  note. The four steps still fit: the order, the local delivery, arrival, switch-on.
+- **Who buys is still open.** People in Indonesia can buy locally from the Indonesian
+  Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
+  **write nothing about where the purifiers are bought or shipped from** — the item note is
+  deliberately just "Two Midea units — the model the shelter already uses."
+- **Listing price seen 9 Nov 2026:** Rp1,768,000 per unit on a flash sale, down from
+  Rp2,299,000. Recorded only as a sanity check on any future figure — it is *not* the
+  number for the receipt, which is the TWD that actually leaves Michelle's account.
 
 ## Money: the "Where it goes" receipt
 
