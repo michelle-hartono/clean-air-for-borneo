@@ -214,6 +214,17 @@
   }
   .tally .small { margin: 8px 0 0; color: var(--ink-soft); }
   .tally.is-open .big { color: var(--ink-soft); font-size: clamp(1.35rem, 5vw, 1.7rem); }
+  .tally .sources {
+    display: flex;
+    height: 6px;
+    margin: 13px 0 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--rule-soft);
+  }
+  .tally .sources span { display: block; height: 100%; }
+  .tally .sources .seed    { background: var(--seg-3); }
+  .tally .sources .friends { background: var(--seg-1); }
   .tally .aside { margin: 7px 0 0; color: var(--ink-mute); font-size: 0.95rem; line-height: 1.5; }
   .tally .goal {
     margin: 12px 0 0;
@@ -620,11 +631,20 @@
       breakdown = r.donors ? 'From ' + esc(r.donors) + ' of you.' : '';
     }
 
+    var sources = '';
+    if (seed !== null && fromFriends !== null && total > 0) {
+      var pct = (seed / total) * 100;
+      sources = '<div class="sources" aria-hidden="true">' +
+        '<span class="seed" style="width:' + pct.toFixed(2) + '%"></span>' +
+        '<span class="friends" style="width:' + (100 - pct).toFixed(2) + '%"></span></div>';
+    }
+
     el.className = 'tally';
     el.innerHTML =
       '<p class="eyebrow">' + (r.closed ? 'Raised' : 'Raised so far') + '</p>' +
       '<p class="big">' + esc(fmtTwd(total)) + '</p>' +
       (breakdown ? '<p class="small">' + breakdown + '</p>' : '') +
+      sources +
       (r.closed
         ? '<p class="aside">Donations closed on ' + esc(fmtDate(r.date)) + '.</p>'
         : (r.note ? '<p class="aside">' + esc(r.note) + '</p>' : '')) +
@@ -706,7 +726,7 @@
       if (pot !== null) {
         var left2 = pot - allocated;
         rows += left2 >= 0
-          ? '<div class="line total"><span class="what">Left over</span><span class="leader"></span>' +
+          ? '<div class="line total"><span class="what">Still to spend</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(left2)) + '</span></div>'
           : '<div class="line total over"><span class="what">Over budget</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(Math.abs(left2))) + '</span></div>';

@@ -27,6 +27,10 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   off with NT$3,000. 7 friends have added NT$7,855 since." The friends' figure is
   **derived** as `twd - seed` — never store it, or the two will drift apart.
 - `raised.donors` counts **friends only**, not Michelle. She is not one of the "you".
+- **There are two bars and they measure different axes.** The strip under the tally shows
+  where the money *came from* (Michelle's seed, then friends). The split bar in "Where it
+  goes" shows where it *is going* (per budget item, with the unspent remainder hatched).
+  Her seed can never appear in the second one — it is a source, not a destination.
 - While donations are open the receipt says "Raised so far" and shows the running surplus,
   because the leftover is what decides whether masks and filters happen.
 - `credits` is the footer's photo credit, and it is **empty until a photograph actually
