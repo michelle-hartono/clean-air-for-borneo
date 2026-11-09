@@ -11,6 +11,26 @@ A static page on GitHub Pages that follows the air purifiers bought with Michell
 - `status.json` is the only file that changes for a status update.
 - Photos live in `photos/` and are always added through `scripts/add_photo.py`.
 
+## The look comes from the invitation — don't invent a new one
+
+Michelle's birthday invitation is the design system. The page was realigned to it on
+9 Nov 2026 and should stay aligned:
+
+- **Palette, sampled from the card:** paper `#F0ECE3`, ink `#3D3930`, and the brick red
+  `#9E4B30` of *"i'm starting us off with NT$3,000."*
+- **Red is her voice, never a state.** It marks the wish, links, the quote rule and the
+  seed amount. Progress and completion read in moss `#6B7D54`. Never use red for an error,
+  a warning or an overspend.
+- **Forest tones are the dress code** — moss, olive, earth, sage, cream — and they colour
+  the budget bar and the sources strip. Don't introduce a hue that isn't on the card.
+- **Type is all DM Sans** (headlines lowercase, weight 500) with DM Mono for data: dates,
+  amounts, labels. No serif, no display face.
+- **Her devices:** headlines in quotes and lowercase; slash-delimited footer lines
+  (`/ supporting Rumah Aman Asap · Ranu Welum Foundation /`); the goal written as the card
+  writes it, "goal · two air purifiers for the shelter".
+- The copy in the lede is adapted from the invitation's own body text. If the invitation
+  wording changes, change the page to match, not the other way round.
+
 ## How the page reacts to the data
 
 The design is driven by `status.json`, so getting the data right is the whole job:

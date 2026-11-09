@@ -7,7 +7,7 @@
     "donors": 7,
     "purifiers": null,
     "date": null,
-    "note": "Donations close on 16 November. Then the purifiers get ordered.",
+    "note": "Still room to be part of it — donations close on 16 November, then the purifiers get ordered.",
     "goal_purifiers": 2
   },
   "shelters": [
@@ -59,7 +59,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Purifiers first, plus getting the banner there. If there's more than enough, spare filters and masks get added to this list.",
+    "note": "Two air purifiers for the shelter first, plus getting the banner there. Anything beyond that buys spare filters and masks.",
     "items": [
       {
         "id": "purifiers",
@@ -77,7 +77,7 @@
         "qty": null,
         "planned": 500,
         "spent": null,
-        "note": "The one we all drew at the picnic, posted from Taipei to the kids in Palangka Raya."
+        "note": "Sending the picnic banner from Taipei to the kids in Palangka Raya."
       }
     ]
   },

@@ -10,52 +10,65 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F2EEE7'/%3E%3Cg fill='none' stroke='%232A6396' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M6 10.5h11.5a3.4 3.4 0 1 1 2.9 5.1'/%3E%3Cpath d='M6 16.5h8.5'/%3E%3Cpath d='M6 22.5h13a3.1 3.1 0 1 0-2.7-4.5'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
 <style>
   :root {
-    /* paper the colour of a thank-you card, not quite cream */
-    --paper:      #F2EEE7;
-    --paper-2:    #FBF9F5;
-    --ink:        #241F1A;
-    --ink-soft:   #554C42;
-    --ink-mute:   #7E7366;
-    --rule:       #DED6C8;
-    --rule-soft:  #EAE4D9;
-    /* the blue of the marker in the drawing — the one accent */
-    --marker:     #2A6396;
-    --marker-lit: #3C7FBC;
-    --marker-wash:#E2EAF2;
-    --shadow:     rgba(60, 48, 30, 0.14);
-    --seg-1:      #2A6396;
-    --seg-2:      #4F82AC;
-    --seg-3:      #7BA2C4;
-    --seg-4:      #A9C2D9;
+    /* sampled from the invitation */
+    --paper:      #F0ECE3;
+    --paper-2:    #F8F5EE;
+    --ink:        #3D3930;
+    --ink-soft:   #5E584C;
+    --ink-mute:   #8A8274;
+    --rule:       #DCD4C4;
+    --rule-soft:  #E8E2D6;
+    /* the brick red of "i'm starting us off with NT$3,000." — voice and emphasis, never state */
+    --accent:     #9E4B30;
+    --accent-lit: #B85B3C;
+    /* forest tones, the dress code: moss, olive, earth, sage, cream */
+    --moss:       #7E9066;
+    --olive:      #979972;
+    --earth:      #9F876F;
+    --sage:       #BECDAC;
+    --cream:      #E0D5BF;
+    /* progress reads in moss, so red stays reserved for her voice */
+    --done:       #6B7D54;
+    --done-wash:  #DFE6D5;
+    --seg-1:      #7E9066;
+    --seg-2:      #979972;
+    --seg-3:      #9F876F;
+    --seg-4:      #BECDAC;
+    --shadow:     rgba(61, 57, 48, 0.16);
 
-    --sans: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --serif: Newsreader, Georgia, 'Times New Roman', serif;
+    --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --col: 36rem;
+    --col: 34rem;
     --haze: 1;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:      #16140F;
-      --paper-2:    #201D17;
-      --ink:        #EFE9DE;
-      --ink-soft:   #BBB1A4;
-      --ink-mute:   #8D8275;
-      --rule:       #342E25;
+      --paper:      #1A1813;
+      --paper-2:    #24211A;
+      --ink:        #EFEADE;
+      --ink-soft:   #BDB4A4;
+      --ink-mute:   #8E8574;
+      --rule:       #363027;
       --rule-soft:  #272219;
-      --marker:     #87BAE6;
-      --marker-lit: #A6CFF3;
-      --marker-wash:#1B2833;
-      --shadow:     rgba(0, 0, 0, 0.5);
-      --seg-1:      #A6CFF3;
-      --seg-2:      #82B2DE;
-      --seg-3:      #6090BA;
-      --seg-4:      #466F93;
+      --accent:     #DE8A68;
+      --accent-lit: #EFA486;
+      --moss:       #9DB183;
+      --olive:      #B3B58C;
+      --earth:      #BBA287;
+      --sage:       #8FA37C;
+      --cream:      #CFC2A8;
+      --done:       #8FA676;
+      --done-wash:  #26301D;
+      --seg-1:      #9DB183;
+      --seg-2:      #B3B58C;
+      --seg-3:      #BBA287;
+      --seg-4:      #768A63;
+      --shadow:     rgba(0, 0, 0, 0.55);
     }
   }
 
@@ -66,7 +79,7 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--serif);
+    font-family: var(--sans);
     font-size: 17px;
     line-height: 1.6;
     font-optical-sizing: auto;
@@ -80,9 +93,9 @@
     padding-inline: 22px;
   }
 
-  a { color: var(--marker); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { color: var(--marker-lit); }
-  :focus-visible { outline: 2px solid var(--marker); outline-offset: 3px; border-radius: 2px; }
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--accent-lit); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
   /* ---------- masthead: the drawing's own smoke is the page's weather ---------- */
 
@@ -140,7 +153,7 @@
     gap: 6px 10px;
     align-items: baseline;
   }
-  .weather b { font-weight: 500; color: var(--marker); font-variant-numeric: tabular-nums; }
+  .weather b { font-weight: 500; color: var(--done); font-variant-numeric: tabular-nums; }
 
   .route {
     margin: 30px 0 0;
@@ -153,14 +166,23 @@
 
   h1 {
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: clamp(2.1rem, 9vw, 3.1rem);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
+    font-weight: 500;
+    font-size: clamp(2rem, 8.5vw, 2.9rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     text-wrap: balance;
     margin: 10px 0 0;
   }
 
+  .wish {
+    margin: 18px 0 0;
+    font-size: clamp(1.15rem, 4.6vw, 1.35rem);
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+    text-wrap: balance;
+  }
   .lede {
     margin: 16px 0 0;
     font-size: 1.12rem;
@@ -173,7 +195,7 @@
   .note-to-you {
     margin: 34px 0 0;
     padding: 0 0 0 20px;
-    border-left: 2px solid var(--marker);
+    border-left: 2px solid var(--accent);
   }
   .note-to-you p {
     margin: 0;
@@ -204,7 +226,7 @@
   }
   .tally .big {
     font-family: var(--sans);
-    font-weight: 600;
+    font-weight: 500;
     font-size: clamp(1.9rem, 7.5vw, 2.5rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -213,26 +235,24 @@
     font-variant-numeric: tabular-nums;
   }
   .tally .small { margin: 8px 0 0; color: var(--ink-soft); }
+  .tally .small b { font-weight: 500; color: var(--accent); }
   .tally.is-open .big { color: var(--ink-soft); font-size: clamp(1.35rem, 5vw, 1.7rem); }
   .tally .sources {
     display: flex;
-    height: 6px;
-    margin: 13px 0 0;
-    border-radius: 3px;
-    overflow: hidden;
-    background: var(--rule-soft);
+    gap: 3px;
+    height: 8px;
+    margin: 14px 0 0;
   }
-  .tally .sources span { display: block; height: 100%; }
-  .tally .sources .seed    { background: var(--seg-3); }
-  .tally .sources .friends { background: var(--seg-1); }
+  .tally .sources span { display: block; height: 100%; border-radius: 2px; }
+  .tally .sources .seed    { background: var(--earth); }
+  .tally .sources .friends { background: var(--moss); }
   .tally .aside { margin: 7px 0 0; color: var(--ink-mute); font-size: 0.95rem; line-height: 1.5; }
   .tally .goal {
     margin: 12px 0 0;
     font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--marker);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
   }
 
   .air, .budget, .shelter {
@@ -246,8 +266,8 @@
 
   .air h2 {
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1.22rem;
     letter-spacing: -0.015em;
     margin: 0;
   }
@@ -272,14 +292,14 @@
     color: var(--ink-mute);
   }
   .air figcaption a { color: var(--ink-mute); text-decoration-color: var(--rule); }
-  .air figcaption a:hover { color: var(--marker); }
+  .air figcaption a:hover { color: var(--accent); }
 
   /* ---------- where the money goes: a receipt, because that's what you'd show someone ---------- */
 
   .budget h2 {
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1.22rem;
     letter-spacing: -0.015em;
     margin: 0;
   }
@@ -360,8 +380,8 @@
 
   .shelter h2 {
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.35rem;
+    font-weight: 500;
+    font-size: 1.3rem;
     letter-spacing: -0.015em;
     line-height: 1.2;
     text-wrap: balance;
@@ -392,7 +412,7 @@
     transition: background-color 0.9s ease;
   }
   /* blue as far as the purifiers have actually got */
-  .step.threaded::after { background: var(--marker); }
+  .step.threaded::after { background: var(--done); }
 
   .marker {
     position: absolute;
@@ -405,7 +425,7 @@
     background: var(--paper);
     z-index: 1;
   }
-  .step.done .marker { background: var(--marker); border-color: var(--marker); }
+  .step.done .marker { background: var(--done); border-color: var(--done); }
   .step.done .marker::before {
     content: '';
     position: absolute;
@@ -415,13 +435,13 @@
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
-  .step.current .marker { border-color: var(--marker); background: var(--paper-2); }
+  .step.current .marker { border-color: var(--done); background: var(--paper-2); }
   .step.current .marker::after {
     content: '';
     position: absolute;
     inset: -5px;
     border-radius: 50%;
-    border: 1px solid var(--marker);
+    border: 1px solid var(--done);
     animation: breathe 3s ease-in-out infinite;
   }
   @keyframes breathe {
@@ -430,19 +450,19 @@
   }
   /* switched on: the three blue air-lines from the drawing */
   .step.done.final .marker {
-    box-shadow: 0 0 0 4px var(--marker-wash);
+    box-shadow: 0 0 0 4px var(--done-wash);
   }
 
   .step .label {
     margin: 0;
     font-family: var(--sans);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.02rem;
     letter-spacing: -0.01em;
     line-height: 1.3;
   }
   .step:not(.done) .label { color: var(--ink-mute); font-weight: 400; }
-  .step.current .label { color: var(--ink); font-weight: 600; }
+  .step.current .label { color: var(--ink); font-weight: 500; }
 
   .when {
     margin: 3px 0 0;
@@ -480,8 +500,8 @@
   .moments { margin-top: 48px; }
   .moments h2 {
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1.22rem;
     letter-spacing: -0.015em;
     margin: 0 0 4px;
   }
@@ -501,6 +521,7 @@
     padding: 20px 0 64px;
     border-top: 1px solid var(--rule);
   }
+  footer .supporting { color: var(--ink-soft); letter-spacing: 0.06em; margin-bottom: 9px; }
   footer p {
     margin: 0 0 5px;
     font-family: var(--mono);
@@ -546,7 +567,8 @@
     <p class="weather" id="weather"></p>
     <p class="route">Taipei &rarr; Palangka Raya &middot; about 3,100 km</p>
     <h1>clean air for borneo</h1>
-    <p class="lede">For my 25th, friends sent money for air purifiers instead of presents. They&rsquo;re going to haze shelters in Central Kalimantan. This page follows them the whole way there.</p>
+    <p class="wish">&ldquo;my birthday wish: help them breathe.&rdquo;</p>
+    <p class="lede">No presents this year. Friends are chipping in for air purifiers at Rumah Aman Asap Annisa, a haze shelter full of little ones in Central Kalimantan, Borneo, where forest and peat fires have filled the air with smoke this season. This page follows them the whole way there.</p>
 
     <div class="note-to-you">
       <p>If you&rsquo;re here from the card &mdash; this is yours. You turned a birthday into something that sits in a room full of kids and quietly makes the air breathable.</p>
@@ -580,6 +602,7 @@
 </main>
 
 <footer class="col">
+  <p class="supporting">/ supporting Rumah Aman Asap &middot; Ranu Welum Foundation /</p>
   <p id="credits" hidden></p>
   <p id="updated"></p>
 </footer>
@@ -602,9 +625,11 @@
     var total = ok(r.twd) ? Number(r.twd) : null;
     var seed  = ok(r.seed) ? Number(r.seed) : null;
 
+    var n = Number(r.goal_purifiers);
+    var spelled = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' }[n] || esc(r.goal_purifiers);
     var goal = r.goal_purifiers
-      ? '<p class="goal">Goal &middot; ' + esc(r.goal_purifiers) +
-        (r.goal_purifiers === 1 ? ' air purifier' : ' air purifiers') + '</p>'
+      ? '<p class="goal">goal &middot; ' + spelled +
+        (n === 1 ? ' air purifier' : ' air purifiers') + ' for the shelter</p>'
       : '';
 
     // nothing counted yet
@@ -624,7 +649,7 @@
       var who = r.donors
         ? esc(r.donors) + (Number(r.donors) === 1 ? ' friend has' : ' friends have')
         : 'friends have';
-      breakdown = 'I started us off with ' + esc(fmtTwd(seed)) + '. ' +
+      breakdown = 'I started us off with <b>' + esc(fmtTwd(seed)) + '</b>. ' +
                   who + ' added ' + esc(fmtTwd(fromFriends)) +
                   (r.closed ? '.' : ' since.');
     } else {
