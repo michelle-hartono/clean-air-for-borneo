@@ -31,9 +31,10 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Currency is unsettled.** `budget.currency` is TWD and the page prints `NT$`, but an
   Indonesian listing prices in IDR. Don't mix the two in one receipt — ask Michelle for
   the TWD figure, or for permission to show that line in IDR, before writing a number.
-- **Who buys is unsettled.** If the shelter buys locally rather than Michelle shipping
-  from Taipei, the step notes and the "Taipei → Palangka Raya" route line need rewording:
-  the money and the banner travel that distance, the purifiers don't.
+- **Who buys: settled.** People helping in Indonesia buy the purifiers locally from the
+  Indonesian Shopee listing. So the purifiers never ship from Taipei — the money and the
+  banner are what make that trip. Don't write "shipping from Taipei" into a purifier step
+  note. The four steps still fit: the order, the local delivery, arrival, switch-on.
 
 ## Money: the "Where it goes" receipt
 
