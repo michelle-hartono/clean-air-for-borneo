@@ -47,6 +47,9 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   off with NT$3,000. 7 friends have added NT$7,855 since." The friends' figure is
   **derived** as `twd - seed` — never store it, or the two will drift apart.
 - `raised.donors` counts **friends only**, not Michelle. She is not one of the "you".
+- **Every bar carries a caption in words** (`.barkey` under it) saying what it shows. A bar
+  that needs explaining out loud is decoration — if a change makes one unreadable, fix the
+  bar or cut it, don't leave it bare.
 - **There are two bars and they measure different axes.** The strip under the tally shows
   where the money *came from* (Michelle's seed, then friends). The split bar in "Where it
   goes" shows where it *is going* (per budget item, with the unspent remainder hatched).

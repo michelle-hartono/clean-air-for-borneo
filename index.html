@@ -34,9 +34,9 @@
     --done:       #6B7D54;
     --done-wash:  #DFE6D5;
     --seg-1:      #7E9066;
-    --seg-2:      #979972;
-    --seg-3:      #9F876F;
-    --seg-4:      #BECDAC;
+    --seg-2:      #9F876F;
+    --seg-3:      #AFBF9C;
+    --seg-4:      #B8A68E;
     --shadow:     rgba(61, 57, 48, 0.16);
 
     --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -65,9 +65,9 @@
       --done:       #8FA676;
       --done-wash:  #26301D;
       --seg-1:      #9DB183;
-      --seg-2:      #B3B58C;
-      --seg-3:      #BBA287;
-      --seg-4:      #768A63;
+      --seg-2:      #BBA287;
+      --seg-3:      #6F8458;
+      --seg-4:      #8C755D;
       --shadow:     rgba(0, 0, 0, 0.55);
     }
   }
@@ -243,7 +243,7 @@
     height: 8px;
     margin: 14px 0 0;
   }
-  .tally .sources span { display: block; height: 100%; border-radius: 2px; }
+  .tally .sources span { display: block; height: 100%; min-width: 3px; border-radius: 2px; }
   .tally .sources .seed    { background: var(--earth); }
   .tally .sources .friends { background: var(--moss); }
   .tally .aside { margin: 7px 0 0; color: var(--ink-mute); font-size: 0.95rem; line-height: 1.5; }
@@ -307,18 +307,32 @@
 
   .split {
     display: flex;
+    gap: 3px;
     height: 10px;
     margin: 22px 0 0;
-    border-radius: 5px;
-    overflow: hidden;
-    background: var(--rule-soft);
-    border: 1px solid var(--rule);
   }
-  .split span { display: block; height: 100%; transition: width 1s cubic-bezier(.33,.7,.3,1); }
+  .split span {
+    display: block;
+    height: 100%;
+    min-width: 3px;
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(.33,.7,.3,1);
+  }
   .split .rest {
+    border: 1px solid var(--rule);
     background-image: repeating-linear-gradient(
       -45deg, var(--rule) 0 1.5px, transparent 1.5px 6px);
   }
+  /* a bar nobody can read is decoration — say what it shows */
+  .barkey {
+    margin: 9px 0 0;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    color: var(--ink-mute);
+  }
+  .barkey b { font-weight: 400; color: var(--ink-soft); }
 
   ul.ledger { list-style: none; margin: 22px 0 0; padding: 0; }
   .ledger li + li { margin-top: 14px; }
@@ -661,7 +675,8 @@
       var pct = (seed / total) * 100;
       sources = '<div class="sources" aria-hidden="true">' +
         '<span class="seed" style="width:' + pct.toFixed(2) + '%"></span>' +
-        '<span class="friends" style="width:' + (100 - pct).toFixed(2) + '%"></span></div>';
+        '<span class="friends" style="width:' + (100 - pct).toFixed(2) + '%"></span></div>' +
+        '<p class="barkey">where it came from &mdash; mine, then yours.</p>';
     }
 
     el.className = 'tally';
@@ -713,7 +728,12 @@
       if (left > 0) {
         parts += '<span class="rest" style="width:' + ((left / scale) * 100).toFixed(2) + '%"></span>';
       }
-      bar = '<div class="split" aria-hidden="true">' + parts + '</div>';
+      var leftNow = Math.max(0, pot - allocated);
+      bar = '<div class="split" aria-hidden="true">' + parts + '</div>' +
+        '<p class="barkey"><b>' + esc(fmtTwd(allocated)) + '</b> of ' + esc(fmtTwd(pot)) +
+        ' is spoken for' +
+        (leftNow > 0 ? ', the hatched part is the <b>' + esc(fmtTwd(leftNow)) + '</b> still to spend' : '') +
+        '.</p>';
     }
 
     var lines = items.map(function (it, i) {
