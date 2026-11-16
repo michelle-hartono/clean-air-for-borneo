@@ -68,22 +68,22 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 
 ## Open questions — confirm before filling these in
 
-- **The purifiers are Midea**, the model the shelter already uses, bought from an
-  Indonesian Shopee listing that includes a filter. No price has been given yet, so
-  `purifiers.planned` and `.spent` stay `null`.
-- **Currency is unsettled.** `budget.currency` is TWD and the page prints `NT$`, but an
-  Indonesian listing prices in IDR. Don't mix the two in one receipt — ask Michelle for
-  the TWD figure, or for permission to show that line in IDR, before writing a number.
+- **The purifiers are Xiaomi Smart Air Purifier 4 Lite** — confirmed from Michelle's order
+  screenshot on 16 Nov 2026, which supersedes the earlier "Midea". The listing covers
+  several models; the chosen variation is "4 Lite".
+- **Currency:** the receipt is TWD throughout. One gift came in as Rp1,000,000 and is
+  carried in `raised.twd` at roughly NT$1,797 (mid-market, 16 Nov 2026). If Michelle says
+  what actually landed, replace it with the real figure.
 - **Who buys is still open.** People in Indonesia can buy locally from the Indonesian
   Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
   **write nothing about where the purifiers are bought or shipped from** — the item note is
   deliberately just "Two Midea units — the model the shelter already uses."
-- **Price benchmark.** On 9 Nov 2026 the listing showed Rp2,299,000 per unit, with a
-  six-hour flash sale at Rp1,768,000. Michelle chose to let the sale go and order after
-  donations close on 16 November, so **expect roughly the Rp2,299,000 list price** (about
-  NT$4,200 per unit at the time, ~NT$8,300 for two). Don't treat a figure near the list
-  price as a mistake. This is a sanity check only — the receipt records the TWD that
-  actually leaves her account, never a listing price.
+- **Price: unresolved, do not guess.** On 16 Nov 2026 Michelle sent an order screenshot
+  and said "in TWD this is 4812", without saying whether NT$4,812 is one unit or both.
+  Earlier benchmarks: the listing was Rp2,299,000 per unit (~NT$4,150), flash-priced at
+  Rp1,768,000 (~NT$3,180). NT$4,812 is plausible as one unit plus shipping, and low for
+  two. **Ask before writing it.** `purifiers.planned_low/high` stay as the range until she
+  confirms.
 
 ## Money: the "Where it goes" receipt
 

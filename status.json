@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-14",
+  "updated": "2026-11-16",
   "raised": {
     "closed": false,
-    "twd": 15155,
+    "twd": 16952,
     "seed": 3000,
-    "donors": 11,
+    "donors": 12,
     "purifiers": null,
     "date": null,
-    "note": "Still room to be part of it — donations close on 16 November, then the purifiers get ordered.",
+    "note": "Donations close today. Then the purifiers get ordered.",
     "goal_purifiers": 2
   },
   "shelters": [
@@ -69,7 +69,7 @@
         "planned_low": 6400,
         "planned_high": 8300,
         "spent": null,
-        "note": "Two Midea units — the model the shelter already uses. The price moves with Shopee's promotions and the rupiah rate, so this is a range until it's bought."
+        "note": "Two Xiaomi Smart Air Purifier 4 Lite — the model the shelter already uses. The price moves with Shopee's promotions and the rupiah rate, so this is a range until it's bought."
       },
       {
         "id": "banner",
