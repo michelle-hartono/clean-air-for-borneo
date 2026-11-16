@@ -20,9 +20,9 @@
         {
           "id": "ordered",
           "label": "Order placed",
-          "done": false,
-          "date": null,
-          "note": "",
+          "done": true,
+          "date": "2026-11-16",
+          "note": "One Xiaomi Smart Air Purifier 4 Lite, ordered for the shelter.",
           "photo": null,
           "alt": ""
         },
@@ -59,17 +59,23 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Two air purifiers for the shelter first, plus getting the banner there. Anything beyond that buys spare filters and masks.",
+    "note": "One purifier is paid for and the next is being bought tomorrow. Whatever is still unspent goes to more of the same, plus spare filters and masks.",
     "items": [
       {
-        "id": "purifiers",
-        "label": "Air purifiers",
-        "qty": 2,
+        "id": "purifier-raa",
+        "label": "Air purifier for RA Annisa",
+        "qty": null,
         "planned": null,
-        "planned_low": 6400,
-        "planned_high": 8300,
+        "spent": 4812,
+        "note": "Xiaomi Smart Air Purifier 4 Lite, bought on 16 November."
+      },
+      {
+        "id": "purifier-next",
+        "label": "The next air purifier",
+        "qty": null,
+        "planned": 4812,
         "spent": null,
-        "note": "Two Xiaomi Smart Air Purifier 4 Lite — the model the shelter already uses. The price moves with Shopee's promotions and the rupiah rate, so this is a range until it's bought."
+        "note": "Same model, being bought tomorrow. The unit price is known now, so this is close."
       },
       {
         "id": "banner",

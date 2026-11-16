@@ -71,19 +71,21 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **The purifiers are Xiaomi Smart Air Purifier 4 Lite** — confirmed from Michelle's order
   screenshot on 16 Nov 2026, which supersedes the earlier "Midea". The listing covers
   several models; the chosen variation is "4 Lite".
-- **Currency:** the receipt is TWD throughout. One gift came in as Rp1,000,000 and is
-  carried in `raised.twd` at roughly NT$1,797 (mid-market, 16 Nov 2026). If Michelle says
-  what actually landed, replace it with the real figure.
+- **Currency:** the receipt is TWD throughout, but the money itself stays in rupiah. One
+  gift came in as Rp1,000,000 and is carried in `raised.twd` at roughly NT$1,797
+  (mid-market, 16 Nov 2026) — a TWD equivalent, not a landed amount.
 - **Who buys is still open.** People in Indonesia can buy locally from the Indonesian
   Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
   **write nothing about where the purifiers are bought or shipped from** — the item note is
   deliberately just "Two Midea units — the model the shelter already uses."
-- **Price: unresolved, do not guess.** On 16 Nov 2026 Michelle sent an order screenshot
-  and said "in TWD this is 4812", without saying whether NT$4,812 is one unit or both.
-  Earlier benchmarks: the listing was Rp2,299,000 per unit (~NT$4,150), flash-priced at
-  Rp1,768,000 (~NT$3,180). NT$4,812 is plausible as one unit plus shipping, and low for
-  two. **Ask before writing it.** `purifiers.planned_low/high` stay as the range until she
-  confirms.
+- **Unit price: NT$4,812 per purifier**, confirmed 16 Nov 2026. The first one was bought
+  that day for RA Annisa; the rest follow separately.
+- **Purifiers are bought one at a time and go to different places**, so the receipt has one
+  line per unit rather than a single "×2" line. Add a line when Michelle buys another; the
+  unit price makes the estimate for an unbought one reliable.
+- **The money stays in rupiah.** Spending happens in IDR; the page is TWD throughout and
+  figures are converted. Use the TWD Michelle gives you — never convert a rupiah price
+  yourself and publish the result.
 
 ## Money: the "Where it goes" receipt
 
