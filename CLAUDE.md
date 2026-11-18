@@ -76,6 +76,9 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   16 Nov 2026 mid-market rate (0.001797), not landed amounts:
   Rp1,000,000 ≈ NT$1,797 and Rp200,000 ≈ NT$359. If a rate or a landed figure changes,
   recompute `raised.twd` from the gift list Michelle gives you — never edit it blind.
+  The footer says so plainly ("Some gifts arrived in rupiah... shown here converted to NT$"),
+  because a total that reads as exact shouldn't quietly contain an approximation. Keep that
+  line as long as any figure on the page is converted.
 - **Donations closed 16 Nov 2026** at NT$17,311: NT$3,000 seed plus NT$14,311 from 13
   gifts. `raised.closed` is true and `raised.note` is empty, so the page shows the closing
   date instead.
