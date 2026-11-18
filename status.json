@@ -1,13 +1,12 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-18",
   "raised": {
-    "closed": false,
-    "twd": 16952,
+    "closed": true,
+    "twd": 17311,
     "seed": 3000,
-    "donors": 12,
-    "purifiers": null,
-    "date": null,
-    "note": "Donations close today. Then the purifiers get ordered.",
+    "donors": 13,
+    "date": "2026-11-16",
+    "note": "",
     "goal_purifiers": 2
   },
   "shelters": [
@@ -81,9 +80,9 @@
         "id": "banner",
         "label": "Sending the banner",
         "qty": null,
-        "planned": 500,
-        "spent": null,
-        "note": "Sending the picnic banner from Taipei to the kids in Palangka Raya."
+        "planned": 450,
+        "spent": 450,
+        "note": "Sent the picnic banner from Taipei to the kids in Palangka Raya."
       }
     ]
   },

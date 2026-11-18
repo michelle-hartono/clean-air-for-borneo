@@ -71,9 +71,14 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **The purifiers are Xiaomi Smart Air Purifier 4 Lite** — confirmed from Michelle's order
   screenshot on 16 Nov 2026, which supersedes the earlier "Midea". The listing covers
   several models; the chosen variation is "4 Lite".
-- **Currency:** the receipt is TWD throughout, but the money itself stays in rupiah. One
-  gift came in as Rp1,000,000 and is carried in `raised.twd` at roughly NT$1,797
-  (mid-market, 16 Nov 2026) — a TWD equivalent, not a landed amount.
+- **Currency:** the receipt is TWD throughout, but the money itself stays in rupiah. Two
+  gifts came in as rupiah and are carried in `raised.twd` as TWD equivalents at the
+  16 Nov 2026 mid-market rate (0.001797), not landed amounts:
+  Rp1,000,000 ≈ NT$1,797 and Rp200,000 ≈ NT$359. If a rate or a landed figure changes,
+  recompute `raised.twd` from the gift list Michelle gives you — never edit it blind.
+- **Donations closed 16 Nov 2026** at NT$17,311: NT$3,000 seed plus NT$14,311 from 13
+  gifts. `raised.closed` is true and `raised.note` is empty, so the page shows the closing
+  date instead.
 - **Who buys is still open.** People in Indonesia can buy locally from the Indonesian
   Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
   **write nothing about where the purifiers are bought or shipped from** — the item note is
