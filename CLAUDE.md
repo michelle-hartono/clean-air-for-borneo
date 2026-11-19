@@ -110,6 +110,11 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   or a rate Michelle states. On 19 Nov 2026 a rate of 490 IDR/TWD was derived by assuming
   the filter order was Rp369,000; the real rate was ~554, and the error inflated the
   donation total by ~NT$283 and hid a genuine shortfall.
+- **`raised.topup` is Michelle's own money beyond her seed.** She put in NT$3,000 at the
+  start and NT$76 at the end to cover the last of the spending, so `raised.twd` (NT$17,397)
+  = friends NT$14,321 + seed NT$3,000 + topup NT$76, and it equals the total spent exactly.
+  The tally says so in words and the receipt reads "All of it spent". Keep those three
+  numbers consistent: if a figure changes, recompute rather than editing one in isolation.
 - **How the two currencies meet:** spending is whatever Michelle's card was actually
   charged in TWD (that is what left her account). The rupiah gifts, Rp1,200,000, are
   valued at the market rate — NT$2,166 at 554 IDR/TWD. Raised NT$17,321, spent NT$17,397,

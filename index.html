@@ -639,6 +639,7 @@
     var ok = function (v) { return v !== null && v !== undefined; };
     var total = ok(r.twd) ? Number(r.twd) : null;
     var seed  = ok(r.seed) ? Number(r.seed) : null;
+    var topup = ok(r.topup) ? Number(r.topup) : 0;
 
     var n = Number(r.goal_purifiers);
     var spelled = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' }[n] || esc(r.goal_purifiers);
@@ -658,22 +659,24 @@
     }
 
     // "i'm starting us off with NT$3,000" — her share is named separately, as the invitation put it
-    var fromFriends = seed !== null ? Math.max(0, total - seed) : null;
+    var mine = seed !== null ? seed + topup : null;
+    var fromFriends = mine !== null ? Math.max(0, total - mine) : null;
     var breakdown;
-    if (seed !== null && fromFriends !== null) {
+    if (mine !== null && fromFriends !== null) {
       var who = r.donors
-        ? esc(r.donors) + (Number(r.donors) === 1 ? ' friend has' : ' friends have')
-        : 'friends have';
+        ? esc(r.donors) + (Number(r.donors) === 1 ? ' friend' : ' friends')
+        : 'friends';
       breakdown = 'I started us off with <b>' + esc(fmtTwd(seed)) + '</b>. ' +
-                  who + ' added ' + esc(fmtTwd(fromFriends)) +
-                  (r.closed ? '.' : ' since.');
+                  who + ' gave ' + esc(fmtTwd(fromFriends)) +
+                  (r.closed ? ', every bit of it spent' : ' since') +
+                  (topup > 0 ? ', and I covered the last <b>' + esc(fmtTwd(topup)) + '</b>.' : '.');
     } else {
       breakdown = r.donors ? 'From ' + esc(r.donors) + ' of you.' : '';
     }
 
     var sources = '';
-    if (seed !== null && fromFriends !== null && total > 0) {
-      var pct = (seed / total) * 100;
+    if (mine !== null && fromFriends !== null && total > 0) {
+      var pct = (mine / total) * 100;
       sources = '<div class="sources" aria-hidden="true">' +
         '<span class="seed" style="width:' + pct.toFixed(2) + '%"></span>' +
         '<span class="friends" style="width:' + (100 - pct).toFixed(2) + '%"></span></div>' +
@@ -735,6 +738,8 @@
         '<p class="barkey">' + (over > 0
           ? 'All <b>' + esc(fmtTwd(pot)) + '</b> went out, and <b>' + esc(fmtTwd(over)) +
             '</b> more that I put in myself.'
+          : over === 0
+          ? 'Every <b>' + esc(fmtTwd(pot)) + '</b> of it went out the door.'
           : '<b>' + esc(fmtTwd(allocated)) + '</b> of ' + esc(fmtTwd(pot)) + ' is spoken for' +
             (leftNow > 0 ? ', the hatched part is the <b>' + esc(fmtTwd(leftNow)) + '</b> still to spend' : '') +
             '.') + '</p>';
@@ -774,11 +779,14 @@
               '<span class="leader"></span><span class="amt">' + esc(fmtTwd(allocated)) + '</span></div>';
       if (pot !== null) {
         var left2 = pot - allocated;
-        rows += left2 >= 0
-          ? '<div class="line total"><span class="what">Still to spend</span><span class="leader"></span>' +
-            '<span class="amt">' + esc(fmtTwd(left2)) + '</span></div>'
-          : '<div class="line total over"><span class="what">Topped up by me</span><span class="leader"></span>' +
-            '<span class="amt">' + esc(fmtTwd(Math.abs(left2))) + '</span></div>';
+        rows += left2 === 0
+          ? '<div class="line total"><span class="what">All of it spent</span><span class="leader"></span>' +
+            '<span class="amt">&mdash;</span></div>'
+          : (left2 > 0
+            ? '<div class="line total"><span class="what">Still to spend</span><span class="leader"></span>' +
+              '<span class="amt">' + esc(fmtTwd(left2)) + '</span></div>'
+            : '<div class="line total over"><span class="what">Topped up by me</span><span class="leader"></span>' +
+              '<span class="amt">' + esc(fmtTwd(Math.abs(left2))) + '</span></div>');
       }
       sums = '<div class="sums">' + rows + '</div>';
     }
@@ -786,7 +794,10 @@
     var foot = b.note ? '<p class="footnote">' + esc(b.note) + '</p>' : '';
     el.innerHTML =
       '<h2>Where it goes</h2>' +
-      '<p class="intro">Line by line, what the donations are paying for. Amounts are marked <span class="plan">est</span> until the thing is actually bought.</p>' +
+      '<p class="intro">Line by line, what the donations paid for.' +
+        (items.some(function (it) { return !has(it.spent) && valueOf(it) !== null; })
+          ? ' Amounts are marked <span class="plan">est</span> until the thing is actually bought.'
+          : '') + '</p>' +
       bar + '<ul class="ledger">' + lines + '</ul>' + sums + foot;
   }
 

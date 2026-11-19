@@ -2,8 +2,9 @@
   "updated": "2026-11-19",
   "raised": {
     "closed": true,
-    "twd": 17321,
+    "twd": 17397,
     "seed": 3000,
+    "topup": 76,
     "donors": 13,
     "date": "2026-11-16",
     "note": "",
@@ -146,7 +147,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Three purifiers, a spare filter for each, and the banner. The TWD donations paid for the machines, the rupiah donations for the filters. It came to a little more than was raised, and I covered the difference.",
+    "note": "Three purifiers, a spare filter for each, and the banner. Every donation went out the door; I covered the last bit myself.",
     "items": [
       {
         "id": "purifier-raa",
