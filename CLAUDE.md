@@ -29,7 +29,10 @@ Michelle's birthday invitation is the design system. The page was realigned to i
   (`/ supporting Rumah Aman Asap · Ranu Welum Foundation /`); the goal written as the card
   writes it, "goal · two air purifiers for the shelter".
 - The copy in the lede is adapted from the invitation's own body text. If the invitation
-  wording changes, change the page to match, not the other way round.
+  wording changes, change the page to match, not the other way round. **Rumah Aman Asap
+  Annisa stays named in that sentence** — it was the original ask. Later recipients are
+  added around it ("You gave enough for other shelters nearby too"), never by replacing it
+  with a generic plural.
 
 ## How the page reacts to the data
 
