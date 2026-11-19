@@ -179,7 +179,7 @@
         "qty": 3,
         "planned": null,
         "spent": 2259,
-        "note": "A spare HEPA filter for each purifier, bought in Indonesia with the rupiah donations, so they keep working once the first filter fills up."
+        "note": "A spare HEPA filter for each purifier, so they keep working once the first one fills up."
       },
       {
         "id": "banner",
