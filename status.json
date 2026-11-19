@@ -97,12 +97,56 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "gpdi-kalahien",
+      "name": "GPdI Imanuel Kalahien",
+      "place": "A church in Kalahien, Central Kalimantan, that opens as a haze shelter",
+      "link": null,
+      "steps": [
+        {
+          "id": "ordered",
+          "label": "Order placed",
+          "done": true,
+          "date": "2026-11-19",
+          "note": "One Xiaomi Smart Air Purifier 4 Lite, ordered for the church.",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "shipped",
+          "label": "On the way",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "received",
+          "label": "Received at the church",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "installed",
+          "label": "Switched on",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        }
+      ]
     }
   ],
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Both purifiers are paid for. Whatever is left goes to more of the same, plus spare filters and masks bought locally.",
+    "note": "Three purifiers, all paid for, one for each place. What's left is in rupiah and goes to spare filters bought locally.",
     "items": [
       {
         "id": "purifier-raa",
@@ -119,6 +163,14 @@
         "planned": null,
         "spent": 4813,
         "note": "Same model, for the children's home."
+      },
+      {
+        "id": "purifier-gpdi",
+        "label": "Air purifier for GPdI Imanuel Kalahien",
+        "qty": null,
+        "planned": null,
+        "spent": 5063,
+        "note": "Same model, for the church in Kalahien."
       },
       {
         "id": "banner",
