@@ -86,8 +86,11 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
   **write nothing about where the purifiers are bought or shipped from** — the item note is
   deliberately just "Two Midea units — the model the shelter already uses."
-- **Unit price: NT$4,812 per purifier**, confirmed 16 Nov 2026. The first one was bought
-  that day for RA Annisa; the rest follow separately.
+- **Unit price: about NT$4,812 per purifier.** RA Annisa's was NT$4,812 (bought 16 Nov);
+  Ayah Bunda's is NT$4,813. The few-dollar drift is the rupiah rate, not an error.
+- **Two recipients as of 19 Nov 2026:** Rumah Aman Asap RA Annisa (the haze shelter from
+  the invitation) and Panti Asuhan Ayah Bunda, a children's home in Palangka Raya.
+  **The contact person's name, phone and the delivery address never go in this repo.**
 - **Purifiers are bought one at a time and go to different places**, so the receipt has one
   line per unit rather than a single "×2" line. Add a line when Michelle buys another; the
   unit price makes the estimate for an unbought one reliable.
@@ -135,7 +138,7 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
 | `switched on` / `installed` (+ photo) | step `installed`: done, date, note, photo |
-| `add shelter: NAME, PLACE` | append a new shelter with the same four steps, all `done: false` |
+| `add shelter: NAME, PLACE` | append a new shelter with the same four steps, all `done: false`. Word the `received` label for the place — "Received at the shelter" for a haze shelter, "Received at the home" for a children's home |
 | `add moment: TEXT` (+ optional photo) | append to `moments` with today's date |
 | any command that adds the **first** photo | also add the photographer to `credits` |
 | `goal: N purifiers` | `raised.goal_purifiers = N` |

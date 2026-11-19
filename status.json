@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "raised": {
     "closed": true,
     "twd": 17311,
@@ -53,12 +53,56 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "ayah-bunda",
+      "name": "Panti Asuhan Ayah Bunda",
+      "place": "A children's home in Palangka Raya, Central Kalimantan",
+      "link": null,
+      "steps": [
+        {
+          "id": "ordered",
+          "label": "Order placed",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "shipped",
+          "label": "On the way",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "received",
+          "label": "Received at the home",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        },
+        {
+          "id": "installed",
+          "label": "Switched on",
+          "done": false,
+          "date": null,
+          "note": "",
+          "photo": null,
+          "alt": ""
+        }
+      ]
     }
   ],
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "One purifier is paid for and the next is being bought tomorrow. Whatever is still unspent goes to more of the same, plus spare filters and masks.",
+    "note": "One purifier is paid for and in hand for RA Annisa; the second is for Panti Asuhan Ayah Bunda. Whatever is left goes to more of the same, plus spare filters and masks bought locally.",
     "items": [
       {
         "id": "purifier-raa",
@@ -69,12 +113,12 @@
         "note": "Xiaomi Smart Air Purifier 4 Lite, bought on 16 November."
       },
       {
-        "id": "purifier-next",
-        "label": "The next air purifier",
+        "id": "purifier-ayah-bunda",
+        "label": "Air purifier for Ayah Bunda",
         "qty": null,
-        "planned": 4812,
+        "planned": 4813,
         "spent": null,
-        "note": "Same model, being bought tomorrow. The unit price is known now, so this is close."
+        "note": "Same model, for the children's home. Price confirmed; not paid yet."
       },
       {
         "id": "banner",
