@@ -106,12 +106,14 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Two pots, and they must not be mixed.** The TWD donations (NT$15,155) paid for the
   three purifiers and the banner; the rupiah donations (Rp1,200,000, held in her parents'
   Indonesian account) pay for the filters, bought locally.
-- **Convert both sides of the books at the same rate.** The rupiah gifts are valued at the
-  mid-market rate (0.001797), so rupiah *spending* must be converted the same way — the
-  filters are Rp1,107,000 → NT$1,989. Michelle's card gives her about 490 IDR/TWD, ~12%
-  worse than mid-market, so she pays NT$753 per filter and absorbs roughly NT$270 of
-  conversion herself. **That personal loss is not a fund expense and does not go on the
-  page**; recording her card figure instead would falsely show the fund over budget.
+- **Convert both sides of the books at the rate Michelle actually pays**, currently
+  **490 IDR per TWD** (derived from the filter order: Rp369,000 charged NT$753; mid-market
+  was ~556, so her card costs her about 12%). Rupiah gifts of Rp1,200,000 are carried at
+  NT$2,449 and rupiah spending at the same rate, so every figure on the page matches a
+  real receipt. Do **not** value gifts at mid-market and spending at her card rate — that
+  mismatch makes the fund look over budget when it isn't.
+- If a later purchase reveals a different rate, recompute `raised.twd` on the same basis
+  rather than leaving the two sides on different rates.
 
 ## Money: the "Where it goes" receipt
 

@@ -2,7 +2,7 @@
   "updated": "2026-11-19",
   "raised": {
     "closed": true,
-    "twd": 17311,
+    "twd": 17604,
     "seed": 3000,
     "donors": 13,
     "date": "2026-11-16",
@@ -177,7 +177,7 @@
         "label": "Spare filters, one each",
         "qty": 3,
         "planned": null,
-        "spent": 1989,
+        "spent": 2259,
         "note": "A spare HEPA filter for each purifier, bought in Indonesia with the rupiah donations, so they keep working once the first filter fills up."
       },
       {
