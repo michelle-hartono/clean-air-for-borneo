@@ -106,14 +106,16 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Two pots, and they must not be mixed.** The TWD donations (NT$15,155) paid for the
   three purifiers and the banner; the rupiah donations (Rp1,200,000, held in her parents'
   Indonesian account) pay for the filters, bought locally.
-- **Convert both sides of the books at the rate Michelle actually pays**, currently
-  **490 IDR per TWD** (derived from the filter order: Rp369,000 charged NT$753; mid-market
-  was ~556, so her card costs her about 12%). Rupiah gifts of Rp1,200,000 are carried at
-  NT$2,449 and rupiah spending at the same rate, so every figure on the page matches a
-  real receipt. Do **not** value gifts at mid-market and spending at her card rate — that
-  mismatch makes the fund look over budget when it isn't.
-- If a later purchase reveals a different rate, recompute `raised.twd` on the same basis
-  rather than leaving the two sides on different rates.
+- **Never infer an exchange rate from a guessed price.** Use the market rate on the day,
+  or a rate Michelle states. On 19 Nov 2026 a rate of 490 IDR/TWD was derived by assuming
+  the filter order was Rp369,000; the real rate was ~554, and the error inflated the
+  donation total by ~NT$283 and hid a genuine shortfall.
+- **How the two currencies meet:** spending is whatever Michelle's card was actually
+  charged in TWD (that is what left her account). The rupiah gifts, Rp1,200,000, are
+  valued at the market rate — NT$2,166 at 554 IDR/TWD. Raised NT$17,321, spent NT$17,397,
+  so she topped up NT$76 herself, and the page says so.
+- If the rate moves materially, recompute `raised.twd` from Rp1,200,000 at the new rate
+  and say in the reply that the headline figure shifted and why.
 
 ## Money: the "Where it goes" receipt
 
@@ -137,9 +139,9 @@ so it has to be true before it is tidy.
   stays null. A wrong number here is worse than a blank one.
 - The stacked bar, the totals and the "still to allocate" line are all computed from
   these values and `raised.twd`. Don't hand-write a total.
-- If spending ever goes past what was raised, the page says "Over budget". That branch is
-  a safety net and shouldn't fire — donations came in above target. Don't pad `raised.twd`
-  to hide it if it ever does.
+- When spending passes what was raised, the page says **"Topped up by me"** and the bar
+  caption reads "All NT$X went out, and NT$Y more that I put in myself." That is now the
+  live state, not a safety net. Never pad `raised.twd` to make it disappear.
 - Amounts are plain integers in TWD, no separators: `5400`, not `"NT$5,400"`.
 
 ## Commands

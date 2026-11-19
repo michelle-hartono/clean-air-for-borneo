@@ -617,7 +617,7 @@
 
 <footer class="col">
   <p class="supporting">/ supporting Rumah Aman Asap &middot; Ranu Welum Foundation /</p>
-  <p>Some gifts arrived in rupiah, and everything was bought in rupiah. Those amounts are shown here converted to NT$ at the rate actually paid, so every figure is one you could find on a receipt.</p>
+  <p>Two gifts arrived in rupiah and most of the buying happened in rupiah. Those amounts are shown here converted to NT$ at the rate on the day, so everything adds up in one currency.</p>
   <p id="credits" hidden></p>
   <p id="updated"></p>
 </footer>
@@ -730,11 +730,14 @@
         parts += '<span class="rest" style="width:' + ((left / scale) * 100).toFixed(2) + '%"></span>';
       }
       var leftNow = Math.max(0, pot - allocated);
+      var over = allocated - pot;
       bar = '<div class="split" aria-hidden="true">' + parts + '</div>' +
-        '<p class="barkey"><b>' + esc(fmtTwd(allocated)) + '</b> of ' + esc(fmtTwd(pot)) +
-        ' is spoken for' +
-        (leftNow > 0 ? ', the hatched part is the <b>' + esc(fmtTwd(leftNow)) + '</b> still to spend' : '') +
-        '.</p>';
+        '<p class="barkey">' + (over > 0
+          ? 'All <b>' + esc(fmtTwd(pot)) + '</b> went out, and <b>' + esc(fmtTwd(over)) +
+            '</b> more that I put in myself.'
+          : '<b>' + esc(fmtTwd(allocated)) + '</b> of ' + esc(fmtTwd(pot)) + ' is spoken for' +
+            (leftNow > 0 ? ', the hatched part is the <b>' + esc(fmtTwd(leftNow)) + '</b> still to spend' : '') +
+            '.') + '</p>';
     }
 
     var lines = items.map(function (it, i) {
@@ -774,7 +777,7 @@
         rows += left2 >= 0
           ? '<div class="line total"><span class="what">Still to spend</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(left2)) + '</span></div>'
-          : '<div class="line total over"><span class="what">Over budget</span><span class="leader"></span>' +
+          : '<div class="line total over"><span class="what">Topped up by me</span><span class="leader"></span>' +
             '<span class="amt">' + esc(fmtTwd(Math.abs(left2))) + '</span></div>';
       }
       sums = '<div class="sums">' + rows + '</div>';
