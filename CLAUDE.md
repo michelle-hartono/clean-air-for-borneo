@@ -89,7 +89,8 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Unit price: about NT$4,812 per purifier.** RA Annisa's was NT$4,812 (bought 16 Nov);
   Ayah Bunda's is NT$4,813. The few-dollar drift is the rupiah rate, not an error.
 - **Two recipients as of 19 Nov 2026:** Rumah Aman Asap RA Annisa (the haze shelter from
-  the invitation) and Panti Asuhan Ayah Bunda, a children's home in Palangka Raya.
+  the invitation) and Panti Asuhan Ayah Bunda, a children's home in Palangka Raya that
+  also serves as a haze shelter. Both purifiers are paid for: NT$4,812 and NT$4,813.
   **The contact person's name, phone and the delivery address never go in this repo** —
   not in status.json, not here, not in a commit message.
 - **Purifiers are bought one at a time and go to different places**, so the receipt has one

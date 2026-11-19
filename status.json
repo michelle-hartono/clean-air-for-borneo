@@ -57,15 +57,15 @@
     {
       "id": "ayah-bunda",
       "name": "Panti Asuhan Ayah Bunda",
-      "place": "A children's home in Palangka Raya, Central Kalimantan",
+      "place": "A children's home in Palangka Raya that also serves as a haze shelter, Central Kalimantan",
       "link": null,
       "steps": [
         {
           "id": "ordered",
           "label": "Order placed",
-          "done": false,
-          "date": null,
-          "note": "",
+          "done": true,
+          "date": "2026-11-19",
+          "note": "One Xiaomi Smart Air Purifier 4 Lite, ordered for the home.",
           "photo": null,
           "alt": ""
         },
@@ -102,7 +102,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "One purifier is paid for and in hand for RA Annisa; the second is for Panti Asuhan Ayah Bunda. Whatever is left goes to more of the same, plus spare filters and masks bought locally.",
+    "note": "Both purifiers are paid for. Whatever is left goes to more of the same, plus spare filters and masks bought locally.",
     "items": [
       {
         "id": "purifier-raa",
@@ -116,9 +116,9 @@
         "id": "purifier-ayah-bunda",
         "label": "Air purifier for Ayah Bunda",
         "qty": null,
-        "planned": 4813,
-        "spent": null,
-        "note": "Same model, for the children's home. Price confirmed; not paid yet."
+        "planned": null,
+        "spent": 4813,
+        "note": "Same model, for the children's home."
       },
       {
         "id": "banner",
