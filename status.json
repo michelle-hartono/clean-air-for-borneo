@@ -146,7 +146,7 @@
   "moments": [],
   "budget": {
     "currency": "TWD",
-    "note": "Three purifiers, all paid for, one for each place. What's left is in rupiah and goes to spare filters bought locally.",
+    "note": "Three purifiers, a spare filter for each, and the banner. The TWD paid for the machines; the rupiah donations pay for the filters, bought locally.",
     "items": [
       {
         "id": "purifier-raa",
@@ -171,6 +171,14 @@
         "planned": null,
         "spent": 5063,
         "note": "Same model, for the church in Kalahien."
+      },
+      {
+        "id": "filters",
+        "label": "Spare filters, one each",
+        "qty": 3,
+        "planned": 1989,
+        "spent": null,
+        "note": "A spare HEPA filter for each purifier, bought in Indonesia with the rupiah donations, so they keep working once the first filter fills up."
       },
       {
         "id": "banner",

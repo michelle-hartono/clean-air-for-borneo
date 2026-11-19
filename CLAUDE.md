@@ -103,9 +103,15 @@ The design is driven by `status.json`, so getting the data right is the whole jo
 - **Purifiers are bought one at a time and go to different places**, so the receipt has one
   line per unit rather than a single "×2" line. Add a line when Michelle buys another; the
   unit price makes the estimate for an unbought one reliable.
-- **The money stays in rupiah.** Spending happens in IDR; the page is TWD throughout and
-  figures are converted. Use the TWD Michelle gives you — never convert a rupiah price
-  yourself and publish the result.
+- **Two pots, and they must not be mixed.** The TWD donations (NT$15,155) paid for the
+  three purifiers and the banner; the rupiah donations (Rp1,200,000, held in her parents'
+  Indonesian account) pay for the filters, bought locally.
+- **Convert both sides of the books at the same rate.** The rupiah gifts are valued at the
+  mid-market rate (0.001797), so rupiah *spending* must be converted the same way — the
+  filters are Rp1,107,000 → NT$1,989. Michelle's card gives her about 490 IDR/TWD, ~12%
+  worse than mid-market, so she pays NT$753 per filter and absorbs roughly NT$270 of
+  conversion herself. **That personal loss is not a fund expense and does not go on the
+  page**; recording her card figure instead would falsely show the fund over budget.
 
 ## Money: the "Where it goes" receipt
 
