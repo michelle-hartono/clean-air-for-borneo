@@ -29,9 +29,9 @@
         {
           "id": "shipped",
           "label": "On the way",
-          "done": false,
-          "date": null,
-          "note": "",
+          "done": true,
+          "date": "2026-11-19",
+          "note": "Left the seller, heading to Palangka Raya.",
           "photo": null,
           "alt": ""
         },
@@ -73,9 +73,9 @@
         {
           "id": "shipped",
           "label": "On the way",
-          "done": false,
-          "date": null,
-          "note": "",
+          "done": true,
+          "date": "2026-11-19",
+          "note": "Left the seller, heading to Palangka Raya.",
           "photo": null,
           "alt": ""
         },
@@ -117,9 +117,9 @@
         {
           "id": "shipped",
           "label": "On the way",
-          "done": false,
-          "date": null,
-          "note": "",
+          "done": true,
+          "date": "2026-11-19",
+          "note": "Left the seller, heading to Kalahien.",
           "photo": null,
           "alt": ""
         },
