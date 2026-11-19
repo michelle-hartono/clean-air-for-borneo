@@ -90,7 +90,8 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   Ayah Bunda's is NT$4,813. The few-dollar drift is the rupiah rate, not an error.
 - **Two recipients as of 19 Nov 2026:** Rumah Aman Asap RA Annisa (the haze shelter from
   the invitation) and Panti Asuhan Ayah Bunda, a children's home in Palangka Raya.
-  **The contact person's name, phone and the delivery address never go in this repo.**
+  **The contact person's name, phone and the delivery address never go in this repo** —
+  not in status.json, not here, not in a commit message.
 - **Purifiers are bought one at a time and go to different places**, so the receipt has one
   line per unit rather than a single "×2" line. Add a line when Michelle buys another; the
   unit price makes the estimate for an unbought one reliable.
