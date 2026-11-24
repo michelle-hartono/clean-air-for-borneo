@@ -69,58 +69,59 @@ The design is driven by `status.json`, so getting the data right is the whole jo
   only a count.
 - While donations are open, `raised.goal_purifiers` shows as "Goal · 2 air purifiers".
 
-## Open questions — confirm before filling these in
+## Where things stand (last updated 24 Nov 2026)
 
-- **The purifiers are Xiaomi Smart Air Purifier 4 Lite** — confirmed from Michelle's order
-  screenshot on 16 Nov 2026, which supersedes the earlier "Midea". The listing covers
-  several models; the chosen variation is "4 Lite".
-- **Currency:** the receipt is TWD throughout, but the money itself stays in rupiah. Two
-  gifts came in as rupiah and are carried in `raised.twd` as TWD equivalents at the
-  16 Nov 2026 mid-market rate (0.001797), not landed amounts:
-  Rp1,000,000 ≈ NT$1,797 and Rp200,000 ≈ NT$359. If a rate or a landed figure changes,
-  recompute `raised.twd` from the gift list Michelle gives you — never edit it blind.
-  The footer says so plainly ("Some gifts arrived in rupiah... shown here converted to NT$"),
-  because a total that reads as exact shouldn't quietly contain an approximation. Keep that
-  line as long as any figure on the page is converted.
-- **Donations closed 16 Nov 2026** at NT$17,311: NT$3,000 seed plus NT$14,311 from 13
-  gifts. `raised.closed` is true and `raised.note` is empty, so the page shows the closing
-  date instead.
-- **Who buys is still open.** People in Indonesia can buy locally from the Indonesian
-  Shopee listing, but Michelle may be able to order from Taiwan instead. Until she says,
-  **write nothing about where the purifiers are bought or shipped from** — the item note is
-  deliberately just "Two Midea units — the model the shelter already uses."
-- **Unit price: roughly NT$4,800-5,100 per purifier.** RA Annisa NT$4,812 (16 Nov),
-  Ayah Bunda NT$4,813, GPdI Imanuel Kalahien NT$5,063 (19 Nov). The drift is the rupiah
-  rate and the seller, not an error.
-- **Three recipients as of 19 Nov 2026**, one purifier each, all paid for:
-  Rumah Aman Asap RA Annisa (the haze shelter from the invitation, Palangka Raya),
-  Panti Asuhan Ayah Bunda (a children's home in Palangka Raya that also serves as a haze
-  shelter), and GPdI Imanuel Kalahien (a church in Kalahien that opens as a haze shelter —
-  **not in Palangka Raya**, so the "Taipei → Palangka Raya" route line in `index.html` no
-  longer covers every recipient; confirm the wording with Michelle before changing it).
-  **The contact person's name, phone and the delivery address never go in this repo** —
-  not in status.json, not here, not in a commit message.
-- **Purifiers are bought one at a time and go to different places**, so the receipt has one
-  line per unit rather than a single "×2" line. Add a line when Michelle buys another; the
-  unit price makes the estimate for an unbought one reliable.
-- **Two pots, and they must not be mixed.** The TWD donations (NT$15,155) paid for the
-  three purifiers and the banner; the rupiah donations (Rp1,200,000, held in her parents'
-  Indonesian account) pay for the filters, bought locally.
-- **Never infer an exchange rate from a guessed price.** Use the market rate on the day,
-  or a rate Michelle states. On 19 Nov 2026 a rate of 490 IDR/TWD was derived by assuming
-  the filter order was Rp369,000; the real rate was ~554, and the error inflated the
-  donation total by ~NT$283 and hid a genuine shortfall.
-- **`raised.topup` is Michelle's own money beyond her seed.** She put in NT$3,000 at the
-  start and NT$76 at the end to cover the last of the spending, so `raised.twd` (NT$17,397)
-  = friends NT$14,321 + seed NT$3,000 + topup NT$76, and it equals the total spent exactly.
-  The tally says so in words and the receipt reads "All of it spent". Keep those three
-  numbers consistent: if a figure changes, recompute rather than editing one in isolation.
-- **How the two currencies meet:** spending is whatever Michelle's card was actually
-  charged in TWD (that is what left her account). The rupiah gifts, Rp1,200,000, are
-  valued at the market rate — NT$2,166 at 554 IDR/TWD. Raised NT$17,321, spent NT$17,397,
-  so she topped up NT$76 herself, and the page says so.
-- If the rate moves materially, recompute `raised.twd` from Rp1,200,000 at the new rate
-  and say in the reply that the headline figure shifted and why.
+**The money is closed and fully spent. Don't recalculate it — just don't break it.**
+
+| | |
+| --- | --- |
+| Raised | **NT$17,397** = friends NT$14,321 + Michelle's seed NT$3,000 + her top-up NT$76 |
+| Donations closed | 16 November 2026, 13 friends |
+| Spent | **NT$17,397** — exactly level, the receipt reads "All of it spent" |
+
+Eleven gifts came in NT$; two came in rupiah (Rp1,200,000 total) and are carried at the
+market rate (~554 IDR/TWD = NT$2,166). Michelle paid for everything on her Taiwanese card
+and reimburses herself from the rupiah held in her parents' Indonesian account.
+
+**The three recipients**, one Xiaomi Smart Air Purifier 4 Lite and one spare filter each:
+
+1. **Rumah Aman Asap RA Annisa** — a kindergarten turned haze shelter, Palangka Raya.
+   The shelter from the invitation. NT$4,812, ordered 16 Nov.
+2. **Panti Asuhan Ayah Bunda** — a children's home in Palangka Raya that also serves as a
+   haze shelter. NT$4,813, ordered 19 Nov.
+3. **GPdI Imanuel Kalahien** — a church in Kalahien that opens as a haze shelter.
+   **Not in Palangka Raya.** NT$5,063, ordered 19 Nov.
+
+Also bought: three spare filters (NT$2,259) and the banner's postage from Taipei (NT$450).
+
+**Progress: 6 of 12 steps.** All three are "Order placed" and "On the way" as of 19 Nov.
+What remains is `received` and `installed` for each — that's the whole job from here.
+
+## Still open — ask, don't guess
+
+- **No arrival dates yet.** Nothing on the page promises one; don't invent an ETA.
+- **No photos yet**, so `credits` is empty. Ranu Welum's pictures are expected when the
+  purifiers land. Add the photographer to `credits` in the same edit as the first photo.
+- **The route line** in `index.html` still reads "Taipei → Palangka Raya · about 3,100 km",
+  which no longer covers Kalahien. Michelle knows; she hasn't chosen a replacement.
+- **The goal line** still says "two air purifiers for the shelter", matching the
+  invitation, though three were bought. Left deliberately — her wording, her call.
+- **Unit price ran NT$4,812–5,063.** The drift is the rupiah rate and the seller, not an
+  error. Don't "correct" it.
+
+## Hard-won rules about the money
+
+- **Never infer an exchange rate from a price you were not given.** On 19 Nov a rate of
+  490 IDR/TWD was derived by *assuming* a filter cost Rp369,000. The real rate was ~554.
+  That error inflated the donation total by ~NT$283 and hid a genuine shortfall, and
+  Michelle caught it, not the agent. Use the market rate on the day, or a rate she states.
+- **Spending is whatever her card was actually charged in TWD** — that is what left her
+  account. Don't convert a rupiah sticker price yourself and publish the result.
+- **Value gifts and spending on the same basis.** Mixing a mid-market valuation of the
+  gifts with a card-rate valuation of the spending once made the fund look over budget
+  when it wasn't.
+- **`raised.twd` = friends + `seed` + `topup`, and it equals the total spent.** If any one
+  figure changes, recompute the others rather than editing one in isolation.
 
 ## Money: the "Where it goes" receipt
 
@@ -155,9 +156,9 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 
 | Michelle says | What to change |
 | --- | --- |
-| `donations so far: NT$X from N friends` | `raised.twd = X + raised.seed`, `raised.donors = N` (do the addition yourself; X is the friends' part) |
-| `donations closed: NT$X, N purifiers` | `raised.closed = true`, `raised.twd = X`, `raised.purifiers = N`, `raised.date = today` |
-| `donations closed: NT$X, N purifiers, M friends` | the above, plus `raised.donors = M` |
+| `donations so far: NT$X from N friends` | *(historical — donations closed 16 Nov)* `raised.twd = X + seed + topup`, `raised.donors = N` |
+| `donations closed: NT$X from N friends` | *(already done)* `raised.closed = true`, `raised.twd = X + seed + topup`, `raised.donors = N`, `raised.date = today` |
+| `I put in another NT$X` | `raised.topup += X`, and add the same amount to `raised.twd` |
 | `order placed` (+ what was ordered) | step `ordered`: `done = true`, `date = today`, note listing the items and quantities — **no prices** — in the shape "Two \<model\>, \<where it's going\>." Include masks and filters in the same sentence if they were in the order. Never guess a model: use the one Michelle actually names. |
 | `on the way` (+ optional ETA) | step `shipped`: done, date, note like "Arriving around 28 November." |
 | `received` (+ photo) | step `received`: done, date, note, photo |
@@ -173,7 +174,9 @@ Michelle will say short things like the ones below. Map them to `status.json` ed
 | `drop cost: ITEM` | remove that `budget.items` entry |
 | `undo last` | `git revert` the most recent tracker commit and push |
 
-If a command doesn't say which shelter, use the first one (`ra-annisa`). If there are two shelters and it's ambiguous, ask.
+There are **three** shelters now, so a bare command is usually ambiguous — **ask which
+one** rather than defaulting. Only use `ra-annisa` without asking if the command clearly
+refers to the original shelter.
 
 Write notes in plain, warm, lowercase-friendly English, one or two sentences, for example: "Ordered on Shopee and shipping straight to the shelter." Every photo needs a short `alt` describing what's in it.
 
@@ -224,13 +227,58 @@ Rules for any future image:
    repo is public and git history is permanent. Do the arithmetic outside the project and
    commit only the aggregate: `raised.twd`, `raised.seed`, `raised.donors`.
 
+## Setting up on a different computer
+
+Everything needed is in this repo. The steps once:
+
+```
+git clone https://github.com/michelle-hartono/clean-air-for-borneo.git
+cd clean-air-for-borneo
+python3 -m pip install --user Pillow     # only needed for scripts/add_photo.py
+gh auth login                            # or: git config credential.helper
+```
+
+Check it works before trusting it:
+
+```
+python3 -m json.tool status.json         # must pass
+python3 -c "import PIL; print(PIL.__version__)"
+git log --oneline -1                     # should match github.com/michelle-hartono/clean-air-for-borneo
+```
+
+**If git or `gh` fails with "SSL certificate problem: unable to get local issuer
+certificate", or `gh auth status` claims the token is invalid** — on macOS this is usually
+a stale system CA bundle that can't chain to Sectigo's newer root, **not** a bad token and
+**not** an attack. Point both at a current bundle:
+
+```
+git config http.sslCAInfo /opt/homebrew/etc/ca-certificates/cert.pem
+export SSL_CERT_FILE=/opt/homebrew/etc/ca-certificates/cert.pem
+```
+
+(Adjust the path for the machine; `brew install ca-certificates` provides it.)
+**Never disable certificate verification to get past this.**
+
+Pages redeploys from `main` about a minute after each push. There is no build step — the
+page fetches `status.json` at load, so a push is the whole deployment.
+
 ## Before every push
 
 - `python3 -m json.tool status.json > /dev/null` must pass.
 - Every `photo` path in `status.json` must exist in `photos/`.
 - Every `budget` amount is either `null` or a number Michelle actually gave you.
 - `credits` names only people who have actually sent a photograph.
-- Open the page and confirm it still renders. Every `getElementById` in `index.html` must
-  match an element that exists — a missing one throws and blanks the whole page.
+- **Confirm the page still renders**, not just that the files look right. The whole page
+  is drawn by JavaScript from `status.json`, so one bad reference blanks everything —
+  and this URL is printed on thank-you cards. Serve it locally and check:
+
+  ```
+  python3 -m http.server 8080 &
+  open http://localhost:8080          # or curl it and grep for "Where it goes"
+  ```
+
+  Every `getElementById` in `index.html` must match an element that exists.
+- After pushing, fetch the live URL and confirm the change actually went out — Pages takes
+  about a minute, so the first fetch often still shows the old version.
 - Commit message: `tracker: <what changed>`, e.g. `tracker: order placed for RA Annisa`.
 - Push to `main`. GitHub Pages redeploys in about a minute. Reply to Michelle with the live URL and a one-line summary of what changed.

@@ -21,6 +21,19 @@ the repo, don't move the Pages source off `main` / `/ (root)`, don't add a CNAME
 Pages: Settings → Pages → Deploy from a branch, `main`, `/ (root)`. Redeploys about a
 minute after each push.
 
+## Working on another computer
+
+```
+git clone https://github.com/michelle-hartono/clean-air-for-borneo.git
+cd clean-air-for-borneo
+python3 -m pip install --user Pillow     # for scripts/add_photo.py
+gh auth login
+```
+
+Then open the folder in Claude Code and say what happened. `CLAUDE.md` carries the whole
+operating manual — the command list, where each number comes from, and the privacy rules.
+If git or `gh` complains about SSL certificates, see the setup notes in `CLAUDE.md`.
+
 ## Updating
 
 Open this folder in Claude Code and say things like `order placed`, `on the way`,
